@@ -1,0 +1,3 @@
+pelican
+flake8
+pep8

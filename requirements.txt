@@ -1,3 +1,5 @@
 pelican
 flake8
 pep8
+Markdown
+typogrify

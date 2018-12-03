@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+<!-- Page specific CSS -->
+{% block page_specific_css %}
+{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Resume" />
+
+{% endblock %}
+
+{% block title %}My Resume{% endblock %}
+
+{% block header_intro %}
+  <div class="header-intro theme-bg-primary text-white py-5">
+    <div class="container text-center">
+
+
+    </div><!--//container-->
+  </div><!--//header-intro-->
+{% endblock %}
+
+{% block content %}
+<section class="single-post-wrapper single-col-max-width py-5 px-4 mx-auto">
+  <div class="section-row">
+
+  <div>
+    {{ page.content }}
+  </div>
+
+  {% if GOOGLE_ADSENSE and GOOGLE_ADSENSE.ads.article_bottom %}
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle ads-responsive"
+         data-ad-client="{{ GOOGLE_ADSENSE.ca_id }}"
+         data-ad-slot="{{ GOOGLE_ADSENSE.ads.article_bottom }}"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  {% endif %}
+
+</div>
+</section>
+
+{% endblock %}
+
+{% block page_specific_js %}
+
+{% endblock %}

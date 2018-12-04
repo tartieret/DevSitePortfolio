@@ -14,7 +14,7 @@ SITESUBTITLE = 'Full stack developper and machine learning engineer'
 SITEDESCRIPTION = 'Thoughts and Writings'
 BROWSER_COLOR = '#333'
 
-SITELOGO = '/images/profile.png'
+SITELOGO = '/images/logo.png'
 FAVICON = '/images/favicon.png'
 
 AUTHOR_PROFILE_IMAGE = '/images/profile.png'

@@ -53,8 +53,8 @@ LINKS = (
 SOCIAL = (
     ('linkedin', 'https://www.linkedin.com/in/thomastartiere/'),
     ('github', 'https://github.com/tartieret'),
-    ('twitter', 'https://twitter.com/alxvicenzi'),
-    ('medium', 'https://twitter.com/alxvicenzi'),
+    ('twitter', 'https://twitter.com/thomas_tartiere'),
+    ('medium', 'https://medium.com/@thomas.tartiere'),
 )
 
 CC_LICENSE = {

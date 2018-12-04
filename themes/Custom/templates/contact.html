@@ -30,16 +30,13 @@
 			        <img class="profile-small d-inline-block mx-auto rounded-circle mb-3" src="assets/images/profile.jpg" alt="">
 
 			        <div class="speech-bubble bg-white p-4 p-lg-5 shadow-sm">
-				        <p class="text-left mb-3">{{ page.content }} I'm currently taking on freelance work. If you are interested in hiring me for your project please use the form below to get in touch. Want to know how I work and what I can offer? Check out my <a href="projects.html">project case studies</a> and <a href="resume.html">resume</a>.</p>
-				        <h6 class="font-weight-bold text-center mb-3">You can also find me on the following channels</h6>
+				        <p class="text-left mb-3">{{ page.content }}
+                <h6 class="font-weight-bold text-center mb-3">You can also find me on the following channels</h6>
 
 				        <ul class="social-list-color list-inline mb-0">
-                  <li class="list-inline-item mb-3"><a class="twitter" href="#"><i class="fab fa-twitter fa-fw"></i></a></li>
-                  <li class="list-inline-item mb-3"><a class="linkedin" href="#"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
-                  <li class="list-inline-item mb-3"><a class="github" href="#"><i class="fab fa-github-alt fa-fw"></i></a></li>
-                  <li class="list-inline-item mb-3"><a class="stack-overflow" href="#"><i class="fab fa-stack-overflow fa-fw"></i></a></li>
-                  <li class="list-inline-item mb-3"><a class="medium" href="#"><i class="fab fa-medium-m fa-fw"></i></a></li>
-                  <li class="list-inline-item mb-3"><a class="codepen" href="#"><i class="fab fa-codepen fa-fw"></i></a></li>
+                  {% for name, url in SOCIAL %}
+                    <li class="list-inline-item mb-3"><a class="{{name}}" href="{{url}}"><i class="fab fa-{{name}} fa-fw"></i></a></li>
+                  {% endfor %}
                </ul><!--//social-list-->
 			        </div>
 

@@ -111,3 +111,7 @@ PYGMENTS_RST_OPTIONS = {'linenos': 'table'}
 #     'rumid': 6852,
 #     'design': 6,
 # }
+
+# Formspree email settings
+EMAIL_SUBJECT = "Contact from Thomas Tartiere's blog"
+EMAIL_ACTION = "https://formspree.io/thomas.tartiere@gmail.com"

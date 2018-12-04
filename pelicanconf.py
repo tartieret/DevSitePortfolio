@@ -115,3 +115,24 @@ PYGMENTS_RST_OPTIONS = {'linenos': 'table'}
 # Formspree email settings
 EMAIL_SUBJECT = "Contact from Thomas Tartiere's blog"
 EMAIL_ACTION = "https://formspree.io/thomas.tartiere@gmail.com"
+
+# ----------------------------------
+# SKILLS OVERVIEW
+
+SKILLS_OVERVIEW = (
+    {
+        'title': 'Front-End',
+        'icon': '',
+        'skills': ['Javascript', 'VueJS', 'HTML/CSS/SASS', 'Webpack']
+    },
+    {
+        'title': 'Back-End',
+        'icon': '',
+        'skills': ['Python/Django', 'MS SQL/PostgreSQL', 'MS Azure', 'Docker']
+    },
+    {
+        'title': 'Data Science',
+        'icon': '',
+        'skills': ['Data scraping','Data visualization', 'Machine Learning', 'Deep learning',]
+    },
+)

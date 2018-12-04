@@ -13,9 +13,8 @@
 
 {% block header_intro %}
   <div class="header-intro theme-bg-primary text-white py-5">
-    <div class="container text-center">
-
-
+    <div class="container">
+      <h2 class="page-heading mb-0">Contact</h2>
     </div><!--//container-->
   </div><!--//header-intro-->
 {% endblock %}
@@ -27,7 +26,7 @@
             <div class="row">
 		        <div class="contact-intro col-lg-8 mx-lg-auto mb-5 text-center">
 
-			        <img class="profile-small d-inline-block mx-auto rounded-circle mb-3" src="assets/images/profile.jpg" alt="">
+			        <img class="profile-small d-inline-block mx-auto rounded-circle mb-3" src="{{ AUTHOR_PROFILE_IMAGE }}" alt="">
 
 			        <div class="speech-bubble bg-white p-4 p-lg-5 shadow-sm">
 				        <p class="text-left mb-3">{{ page.content }}

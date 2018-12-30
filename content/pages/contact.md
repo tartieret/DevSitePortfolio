@@ -5,4 +5,4 @@ Summary: How to contact me
 Template: contact
 save_as: contact.html
 
-Hello ! You can contact me using
+ I'm currently taking on freelance work. If you are interested in hiring me for your project please use the form below to get in touch. Want to know how I work and what I can offer? Check out my <a href="projects.html">project case studies</a> and <a href="resume.html">resume</a>.</p>

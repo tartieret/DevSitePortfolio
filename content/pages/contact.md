@@ -5,4 +5,4 @@ Summary: How to contact me
 Template: contact
 save_as: contact.html
 
- I'm currently taking on freelance work. If you are interested in hiring me for your project please use the form below to get in touch. Want to know how I work and what I can offer? Check out my <a href="projects.html">project case studies</a> and <a href="resume.html">resume</a>.</p>
+I am always happy to chat about clean energy technologies, industrial energy efficiency, web development and machine learning. Please use the form below to get in touch. Want to know how I work and what I can offer? Check out my <a href="resume.html">resume</a>.</p>

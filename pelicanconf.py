@@ -103,15 +103,6 @@ PYGMENTS_STYLE = 'github'
 # code blocks with line numbers
 PYGMENTS_RST_OPTIONS = {'linenos': 'table'}
 
-# ADD_THIS_ID = 'ra-55adbb025d4f7e55'
-
-# STATUSCAKE = {
-#     'trackid': 'SL0UAgrsYP',
-#     'days': 7,
-#     'rumid': 6852,
-#     'design': 6,
-# }
-
 # Formspree email settings
 EMAIL_SUBJECT = "Contact from Thomas Tartiere's blog"
 EMAIL_ACTION = "https://formspree.io/thomas.tartiere@gmail.com"
@@ -121,18 +112,18 @@ EMAIL_ACTION = "https://formspree.io/thomas.tartiere@gmail.com"
 
 SKILLS_OVERVIEW = (
     {
-        'title': 'Front-End',
+        'title': 'Web Development',
         'icon': '',
-        'skills': ['Javascript', 'VueJS', 'HTML/CSS/SASS', 'Webpack']
-    },
-    {
-        'title': 'Back-End',
-        'icon': '',
-        'skills': ['Python/Django', 'MS SQL/PostgreSQL', 'MS Azure', 'Docker']
+        'skills': ['Python/Django', 'MS SQL/PostgreSQL', 'Microsoft Azure', 'VueJS', 'HTML/CSS/SASS', 'Docker']
     },
     {
         'title': 'Data Science',
         'icon': '',
-        'skills': ['Data scraping','Data visualization', 'Machine Learning', 'Deep learning',]
+        'skills': ['Data visualization', 'Machine Learning', 'Deep learning', 'Time-serie Analysis']
+    },
+    {
+        'title': 'Other',
+        'icon': '',
+        'skills': ['Project Management','Product Development', 'Business Development', 'Numerical Simulation',  'Renewable Energy', ]
     },
 )

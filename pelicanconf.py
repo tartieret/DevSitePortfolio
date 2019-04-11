@@ -86,7 +86,7 @@ SITEMAP = {
     }
 }
 
-STATIC_PATHS = ['images', 'extra']
+STATIC_PATHS = ['images', 'extra', 'docs']
 
 EXTRA_PATH_METADATA = {
     'extra/custom.css': {'path': os.path.join('extra', 'custom.css')},

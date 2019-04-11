@@ -124,6 +124,6 @@ SKILLS_OVERVIEW = (
     {
         'title': 'Other',
         'icon': '/images/other-skills-icon.svg',
-        'skills': ['Project Management','Product Development', 'Numerical Simulation',  'Energy Systems', 'Business Development',]
+        'skills': ['Project Management','Product Development', 'Numerical Simulation',  'Energy Sciences', 'Business Development',]
     },
 )

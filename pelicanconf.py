@@ -112,18 +112,18 @@ EMAIL_ACTION = "https://formspree.io/thomas.tartiere@gmail.com"
 
 SKILLS_OVERVIEW = (
     {
-        'title': 'Web Development',
+        'title': 'Web Applications',
         'icon': '/images/web-icon.svg',
-        'skills': ['Python/Django', 'MS SQL/PostgreSQL', 'Microsoft Azure', 'VueJS', 'HTML/CSS/SASS', 'Docker']
+        'skills': ['Cloud technologies', 'API design', 'Data processing', 'Modern front-end', 'Containerization ']
     },
     {
         'title': 'Data Science',
         'icon': '/images/data-icon.svg',
-        'skills': ['Data visualization', 'Machine Learning', 'Deep learning', 'Time-serie Analysis']
+        'skills': ['Data visualization', 'Machine Learning', 'Deep learning', 'Time-serie Analysis', 'Web scrapping']
     },
     {
         'title': 'Other',
         'icon': '/images/other-skills-icon.svg',
-        'skills': ['Project Management','Product Development', 'Business Development', 'Numerical Simulation',  'Renewable Energy', ]
+        'skills': ['Project Management','Product Development', 'Numerical Simulation',  'Energy Systems', 'Business Development',]
     },
 )

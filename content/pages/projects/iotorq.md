@@ -4,7 +4,7 @@ Authors: me
 Summary: Data platform for industrial energy management
 Template: project_detail
 save_as: projects/iotorq.html
-Technologies:django,vuejs,azure,sass,javascript
+Technologies:django,vuejs,azure,sass,javascript,redis,rabbitmq,microsoft-sql-server,postgresql
 Images:projects\iotorq\screenshot1.png,projects\iotorq\screenshot2.png,projects\iotorq\screenshot3.png
 
 ## Project Background

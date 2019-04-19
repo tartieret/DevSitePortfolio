@@ -63,6 +63,15 @@
 					</a>
 		        </div><!--//theme-carousel-->
 
+				<div class="my-5">
+				{% if page.website %}
+					<a class="btn btn-primary" href="{{page.website}}" target="_blank"><i class="fas fa-external-link-alt mr-2"></i> View Live Site</a>
+				{% endif %}
+				{% if page.repository %}
+					<a class="btn btn-secondary" href="{{page.repository}}" target="_blank"><i class="fab fa-github-alt fa-fw"></i> Repository</a>
+				{% endif %}
+				</div>
+
 				{{ page.content }}
 
 	        </div><!--//section-row-->

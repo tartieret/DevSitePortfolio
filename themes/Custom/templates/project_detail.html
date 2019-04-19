@@ -75,6 +75,11 @@
 				{{ page.content }}
 
 	        </div><!--//section-row-->
+			{% if page.video %}
+			<div class="media mb-5 mx-auto flex-column flex-lg-row" style="width:600px">
+				<iframe class="embed-responsive-item"  width="600" height="400" src="{{page.video}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	        </div><!--//media-->
+			{% endif %}
 
             <div class="section-row">
 	            <h3 class="section-title">Technologies Used</h3>

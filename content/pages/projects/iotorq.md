@@ -4,17 +4,29 @@ Authors: me
 Summary: Data platform for industrial energy management
 Template: project_detail
 save_as: projects/iotorq.html
-Technologies:django,vuejs,azure,sass,javascript,redis,rabbitmq,microsoft-sql-server,postgresql
-Images:projects\iotorq\screenshot1.png,projects\iotorq\screenshot2.png,projects\iotorq\screenshot3.png
+Technologies:python,django,vuejs,azure,sass,javascript,redis,rabbitmq,microsoft-sql-server,postgresql
+Images:projects\iotorq\screenshot1.png,projects\iotorq\screenshot2.png,projects\iotorq\screenshot3.png,projects\iotorq\screenshot4.png,projects\iotorq\screenshot5.png,projects\iotorq\screenshot6.jpg,projects\iotorq\screenshot7.png,projects\iotorq\screenshot8.jpg,projects\iotorq\screenshot9.png,projects\iotorq\screenshot10.png
+website:https://www.iotorq.com/
 
-## Project Background
+### Project Background
 
-Project summary goes here. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus.
+At [Panevo](https://www.panevo.com), I led the development of a new data platform for industrial energy management called ioTORQ, from a blank page to successful deployments at large industrial sites (PepsiCo, Saputo, Finning, BC Ferries...).
 
-## Requirements & Challenges
+Streaming data from thousands of metering devices is sent to the platform every minute. Our clients can then explore the data, build dashboard and corporate reports, and find insights to enhance their environmental performance.
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+![Data platform](/images/projects/ioTORQ/dataplatform.jpg)
 
-## Conclusion
+### Features
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+- Fully customizable dashboards and presentations with real-time update
+- Notification system with automatic alerts
+- Flexible REST API
+- Easy integration with multiple data sources & formats, including FTP, process historians, IoT devices, third-party APIs
+- Multivariate regression modeling to define baselines
+- Schematic editor for real-time monitoring of sub-systems
+- Flexible user management and permission system to manage access levels
+- Machine Learning module for asset optimization
+- Bill consolidation: collect and aggregate billing information related to electricity, gas, water, telecom & waste
+- Double offering: cloud SaaS and on-premises deployment
+
+

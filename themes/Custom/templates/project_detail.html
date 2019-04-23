@@ -26,6 +26,7 @@
 {% block content %}
     <section class="project-wrapper single-col-max-width py-5 px-4 mx-auto">
 	        <div class="section-row">
+			{% if page.images %}
 		        <div id="project-carousel" class="theme-carousel carousel slide mb-5" data-ride="carousel">
 			        <ol class="carousel-indicators">
 						{% for img in page.images.split(',') %}
@@ -62,6 +63,7 @@
 						<span class="sr-only">Next</span>
 					</a>
 		        </div><!--//theme-carousel-->
+			{% endif %}
 
 				<div class="my-5">
 				{% if page.website %}

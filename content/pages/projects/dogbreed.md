@@ -4,7 +4,7 @@ Authors: me
 Summary: Deep learning project to detect dog breeds in images
 Template: project_detail
 save_as: projects/breed-detector.html
-Technologies:python,jupyter,keras,numpy,scikit-learn,flask,jquery,bootstrap4
+Technologies:python,jupyter,keras,numpy,scikit-learn,flask,javascript,bootstrap4
 Images:projects\dogbreed1.png,projects\dogbreed2.png,projects\dogbreed3.png
 repository:https://github.com/tartieret/DogBreedDetector
 video:

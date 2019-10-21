@@ -1,7 +1,7 @@
 Title: ioTORQ
 Date: 2019-04-11 00:00
 Authors: me
-Summary: Data platform for industrial energy management
+Summary: Cloud platform for industrial energy management
 Template: project_detail
 save_as: projects/iotorq.html
 Technologies:python,django,vuejs,azure,sass,javascript,redis,rabbitmq,microsoft-sql-server,postgresql
@@ -12,14 +12,14 @@ website:https://www.iotorq.com/
 
 At [Panevo](https://www.panevo.com), I led the development of a new data platform for industrial energy management called ioTORQ, from a blank page to successful deployments at large industrial sites (PepsiCo, Saputo, Finning, BC Ferries...).
 
-Streaming data from thousands of metering devices is sent to the platform every minute. Our clients can then explore the data, build dashboard and corporate reports, and find insights to enhance their environmental performance.
+Streaming data from thousands of IoT devices is sent to the platform every minute. Our clients can then explore their data, build dashboards and corporate reports, and find insights to enhance their environmental performance.
 
 ![Data platform](/images/projects/ioTORQ/dataplatform.jpg)
 
 ### Features
 
 - Fully customizable dashboards and presentations with real-time update
-- Notification system with automatic alerts
+- Notification system with automatic alerting
 - Flexible REST API
 - Easy integration with multiple data sources & formats, including FTP, process historians, IoT devices, third-party APIs
 - Multivariate regression modeling to define baselines

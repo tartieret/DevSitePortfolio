@@ -3,5 +3,5 @@ flake8
 pep8
 Markdown
 typogrify
-Pygments==2.2.0
+Pygments==2.7.4
 beautifulsoup4

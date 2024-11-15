@@ -107,36 +107,39 @@ EMAIL_ACTION = "https://formspree.io/thomas.tartiere@gmail.com"
 
 SKILLS_OVERVIEW = (
     {
-        "title": "Web Applications",
+        "title": "Web Development",
         "icon": "/images/web-icon.svg",
         "skills": [
             "Cloud technologies",
+            "Data streaming",
+            "Distributed systems",
+            "Data storage",
             "API design",
-            "Data processing",
+            "DevOps",
+            "Containerization",
+            "Industrial IoT",
             "Modern front-end",
-            "Containerization ",
         ],
     },
     {
-        "title": "Data Science",
+        "title": "Data Science & Machine Learning",
         "icon": "/images/data-icon.svg",
         "skills": [
-            "Data visualization",
             "Machine Learning",
             "Deep learning",
-            "Time-serie Analysis",
-            "Web scrapping",
+            "Large Language Models",
+            "Time-series Analysis",
         ],
     },
     {
         "title": "Other",
         "icon": "/images/other-skills-icon.svg",
         "skills": [
+            "Engineering Management",
             "Project Management",
             "Product Development",
-            "Numerical Simulation",
-            "Energy Sciences",
             "Business Development",
+            "Numerical Simulation",
         ],
     },
 )

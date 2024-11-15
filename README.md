@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c69dfe8f-04b3-41d4-8598-55e4951df9e1/deploy-status)](https://app.netlify.com/sites/thomastartiere/deploys)
+
 # My Personal Portfolio
 
 In my blog I talk about things that I'm working on

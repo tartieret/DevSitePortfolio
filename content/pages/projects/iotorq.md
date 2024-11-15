@@ -1,12 +1,12 @@
-Title: ioTORQ
+Title: ioTORQ EMIS
 Date: 2019-04-11 00:00
 Authors: me
 Summary: Cloud platform for industrial energy management
 Template: project_detail
 save_as: projects/iotorq.html
 Technologies:python,django,vuejs,azure,sass,javascript,redis,rabbitmq,microsoft-sql-server,postgresql
-Images:projects\iotorq\screenshot1.png,projects\iotorq\screenshot2.png,projects\iotorq\screenshot3.png,projects\iotorq\screenshot4.png,projects\iotorq\screenshot5.png,projects\iotorq\screenshot6.jpg,projects\iotorq\screenshot7.png,projects\iotorq\screenshot8.jpg,projects\iotorq\screenshot9.png,projects\iotorq\screenshot10.png
-website:https://www.iotorq.com/
+Images:projects\EMIS\screenshot1.png,projects\EMIS\screenshot2.png,projects\EMIS\screenshot3.png,projects\EMIS\screenshot4.png,projects\EMIS\screenshot5.png,projects\EMIS\screenshot6.jpg,projects\EMIS\screenshot7.png,projects\EMIS\screenshot8.jpg,projects\EMIS\screenshot9.png,projects\EMIS\screenshot10.png
+website:<https://panevo.com/software/emis-energy-management-information-system-software/>
 
 ### Project Background
 
@@ -28,5 +28,4 @@ Streaming data from thousands of IoT devices is sent to the platform every minut
 - Machine Learning module for asset optimization
 - Bill consolidation: collect and aggregate billing information related to electricity, gas, water, telecom & waste
 - Double offering: cloud SaaS and on-premises deployment
-
-
+- Enterprise Compliance and Security (MFA, SOCII...)

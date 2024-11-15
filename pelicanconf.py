@@ -6,34 +6,29 @@ import os
 # ----------------------------------
 # General site settings
 
-AUTHOR = 'Thomas Tartière'
+AUTHOR = "Thomas Tartière"
 SITENAME = "Thomas Tartière's blog"
-SITEURL = ''
+SITEURL = ""
 SITETITLE = AUTHOR
-SITESUBTITLE = 'Full stack developper and machine learning engineer'
-SITEDESCRIPTION = 'Thoughts and Writings'
-BROWSER_COLOR = '#333'
+SITESUBTITLE = "Full stack developper and machine learning engineer"
+SITEDESCRIPTION = "Thoughts and Writings"
+BROWSER_COLOR = "#333"
 
-SITELOGO = '/images/logo.png'
-FAVICON = '/images/favicon.png'
+SITELOGO = "/images/logo.png"
+FAVICON = "/images/favicon.png"
 
-AUTHOR_PROFILE_IMAGE = '/images/profile.png'
+AUTHOR_PROFILE_IMAGE = "/images/profile.png"
 
-INDEX_SAVE_AS = 'blog.html'
+INDEX_SAVE_AS = "blog.html"
 
-ROBOTS = 'index, follow'
+ROBOTS = "index, follow"
 
-THEME = os.path.join('themes', 'Custom')
-PATH = 'content'
-TIMEZONE = 'America/Vancouver'
-
-I18N_TEMPLATES_LANG = 'en'
-DEFAULT_LANG = 'en'
-OG_LOCALE = 'en_US'
-LOCALE = 'en_US'
+THEME = os.path.join("themes", "Custom")
+PATH = "content"
+TIMEZONE = "America/Vancouver"
 
 DATE_FORMATS = {
-    'en': '%B %d, %Y',
+    "en": "%B %d, %Y",
 }
 
 # Feed generation is usually not desired when developing
@@ -45,53 +40,53 @@ AUTHOR_FEED_RSS = None
 
 # Blogroll
 LINKS = (
-    ('Resume', '/'),
-    ('Articles', '/'),
+    ("Resume", "/"),
+    ("Articles", "/"),
 )
 
 # Social widget
 SOCIAL = (
-    ('linkedin', 'https://www.linkedin.com/in/thomastartiere/'),
-    ('github', 'https://github.com/tartieret'),
-    ('twitter', 'https://twitter.com/thomas_tartiere'),
-    ('medium', 'https://medium.com/@thomas.tartiere'),
+    ("linkedin", "https://www.linkedin.com/in/thomastartiere/"),
+    ("github", "https://github.com/tartieret"),
+    ("twitter", "https://twitter.com/thomas_tartiere"),
+    ("medium", "https://medium.com/@thomas.tartiere"),
 )
 
 CC_LICENSE = {
-    'name': 'Creative Commons Attribution-ShareAlike',
-    'version': '4.0',
-    'slug': 'by-sa'
+    "name": "Creative Commons Attribution-ShareAlike",
+    "version": "4.0",
+    "slug": "by-sa",
 }
 
 COPYRIGHT_YEAR = 2018
 
 DEFAULT_PAGINATION = 10
 
-PLUGIN_PATHS = ['./pelican-plugins']
-PLUGINS = ['sitemap', 'post_stats']# 'i18n_subsites']
+PLUGIN_PATHS = ["./pelican-plugins"]
+PLUGINS = ["sitemap", "post_stats"]  # 'i18n_subsites']
 
 # JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 
 SITEMAP = {
-    'format': 'xml',
-    'priorities': {
-        'articles': 0.6,
-        'indexes': 0.6,
-        'pages': 0.5,
+    "format": "xml",
+    "priorities": {
+        "articles": 0.6,
+        "indexes": 0.6,
+        "pages": 0.5,
     },
-    'changefreqs': {
-        'articles': 'monthly',
-        'indexes': 'daily',
-        'pages': 'monthly',
-    }
+    "changefreqs": {
+        "articles": "monthly",
+        "indexes": "daily",
+        "pages": "monthly",
+    },
 }
 
-STATIC_PATHS = ['images', 'extra', 'docs']
+STATIC_PATHS = ["images", "extra", "docs"]
 
 EXTRA_PATH_METADATA = {
-    'extra/custom.css': {'path': os.path.join('extra', 'custom.css')},
+    "extra/custom.css": {"path": os.path.join("extra", "custom.css")},
 }
-CUSTOM_CSS = os.path.join('extra', 'custom.css')
+CUSTOM_CSS = os.path.join("extra", "custom.css")
 
 USE_LESS = True
 
@@ -99,9 +94,9 @@ USE_LESS = True
 DISQUS_SITENAME = "thomastartiere"
 
 # Code Syntax highlighting using Pygments
-PYGMENTS_STYLE = 'github'
+PYGMENTS_STYLE = "github"
 # code blocks with line numbers
-PYGMENTS_RST_OPTIONS = {'linenos': 'table'}
+PYGMENTS_RST_OPTIONS = {"linenos": "table"}
 
 # Formspree email settings
 EMAIL_SUBJECT = "Contact from Thomas Tartiere's blog"
@@ -112,18 +107,39 @@ EMAIL_ACTION = "https://formspree.io/thomas.tartiere@gmail.com"
 
 SKILLS_OVERVIEW = (
     {
-        'title': 'Web Applications',
-        'icon': '/images/web-icon.svg',
-        'skills': ['Cloud technologies', 'API design', 'Data processing', 'Modern front-end', 'Containerization ']
+        "title": "Web Development",
+        "icon": "/images/web-icon.svg",
+        "skills": [
+            "Cloud technologies",
+            "Data streaming",
+            "Distributed systems",
+            "Data storage",
+            "API design",
+            "DevOps",
+            "Containerization",
+            "Industrial IoT",
+            "Modern front-end",
+        ],
     },
     {
-        'title': 'Data Science',
-        'icon': '/images/data-icon.svg',
-        'skills': ['Data visualization', 'Machine Learning', 'Deep learning', 'Time-serie Analysis', 'Web scrapping']
+        "title": "Data Science & Machine Learning",
+        "icon": "/images/data-icon.svg",
+        "skills": [
+            "Machine Learning",
+            "Deep learning",
+            "Large Language Models",
+            "Time-series Analysis",
+        ],
     },
     {
-        'title': 'Other',
-        'icon': '/images/other-skills-icon.svg',
-        'skills': ['Project Management','Product Development', 'Numerical Simulation',  'Energy Sciences', 'Business Development',]
+        "title": "Other",
+        "icon": "/images/other-skills-icon.svg",
+        "skills": [
+            "Engineering Management",
+            "Project Management",
+            "Product Development",
+            "Business Development",
+            "Numerical Simulation",
+        ],
     },
 )

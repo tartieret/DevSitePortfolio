@@ -4,6 +4,6 @@ Authors: me
 Summary: About me
 Template: about
 save_as: index.html
-intro: I'm a mechanical engineer and full-stack developer specialized in designing complex energy systems and building data applications. Want to know how I may help your project? Check out my <a class="link-on-bg" href="resume.html">resume</a>.
+intro: I'm a software developer building data platforms for industrial applications. Want to know how I may help your project? Check out my <a class="link-on-bg" href="resume.html">resume</a>.
 
-I have more than 6 years' experience building complex simulation software and web applications. Below is a quick overview of my main technical skill sets and tools I use. Want to find out more about my experience? <a href="resume.html">Check out my online resume</a>.
+I have more than 12 years' experience leading software teams and building building complex web applications. Below is a quick overview of my main technical skill sets and tools I use. Want to find out more about my experience? <a href="resume.html">Check out my online resume</a>.

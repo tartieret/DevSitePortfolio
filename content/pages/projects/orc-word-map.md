@@ -6,8 +6,8 @@ Template: project_detail
 save_as: projects/orc-world-map.html
 Technologies:vuejs,bootstrap4,sass,javascript,python
 Images:projects\orc-world-map1.png,projects\orc-world-map2.png,projects\orc-world-map3.png,projects\orc-world-map4.png
-repository:https://github.com/tartieret/ORC-World-Map
-website:https://orc-world-map.org/
+repository:<https://github.com/tartieret/ORC-World-Map>
+website:<https://orc-world-map.org/>
 
 ## Project background
 
@@ -36,6 +36,6 @@ _[A World Overview of the Organic Rankine Cycle Market, T. Tartière, M. Astolfi
 
 ## What's next?
 
-As Google Fusion Table will be shut down in December 2019, I am currently working on a new version of the map based on VueJS.
+Originally built with JQuery and Google Fusion Table, the site was rebuilt in 2022 with VueJS and Google Maps
 
-The new repository [can be found here](https://github.com/tartieret/ORC-World-Map-v2).
+The new repository [can be found here](https://github.com/tartieret/ORC-World-Map-SPA).

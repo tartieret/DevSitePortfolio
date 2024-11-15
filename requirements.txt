@@ -1,8 +1,2 @@
-pelican
-flake8
-pep8
-Markdown
-typogrify
-Pygments
-beautifulsoup4
-invoke
+pelican[markdown]==4.10.1
+beautifulsoup4==4.12.3

@@ -140,7 +140,9 @@ The schematic below gives a visual representation of what happened:
 * ...
 * Similarly, request #n (in green) is received, reads the value of the counter, and commits a new value of `0 + 1 = 1` to the database after about 5 seconds.
 
-This problem is known as a \*\*lost update. \*\*Another transaction overwrites changes made by one transaction without the latter being aware of the former's change.
+![image.png](/images/blog/Avoiding%20Lost%20Updates%20in%20Django/schema.jpeg)
+
+This problem is known as a **lost update.** Another transaction overwrites changes made by one transaction without the latter being aware of the former's change.
 
 This typically happens when two or more transactions access the same data and then perform an update based on what was read. If there is no locking mechanism in place, we are losing some of the updates as the defaut isolation level (read committed) only guarantees that each transaction is based on a value that was previously committed.
 

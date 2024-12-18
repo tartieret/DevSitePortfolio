@@ -4,7 +4,7 @@ Category: django
 Tags: django,python,webdev
 Slug: avoiding-lost-updates-in-web-applications
 Authors: me
-Summary: Prevent common pitfalls with the Read Committed isolation level
+Summary: Save your future self from sleepless nights and learn to prevent sneaky concurrency bugs
 PreviewImage: images/blog/database.jpg
 
 # Avoiding Lost Updates in Web Applications
@@ -26,6 +26,8 @@ PreviewImage: images/blog/database.jpg
 6. [References and Further Readings](#references) 
 
 ## <a name="introduction"></a>Introduction
+
+Ignoring concepts like proper database transactions and handling race conditions might seem harmless at first, but it’s a recipe for concurrency bugs that are incredibly hard to debug. These bugs have a knack for showing up at the worst possible time—usually once your app has scaled—leading to massive headaches and sleepless nights. In this post, we’ll explore how to prevent these issues in Django, saving your future self from countless hours of frustration.
 
 Relational databases like PostgreSQL offer various levels of transaction isolation to manage concurrent data access. The most common (and often default settings) is **Read Committed**, which can lead to **lost updates** in certain scenarios. This tutorial demonstrates the problem and explores solutions using a Django application, but the problem and solutions are relevant for any framework.
 

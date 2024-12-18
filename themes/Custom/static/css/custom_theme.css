@@ -22,7 +22,11 @@
 
 /* Project description */
 
-h2,
+h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
 h3 {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -31,4 +35,9 @@ h3 {
 .project-wrapper p {
   margin-bottom: 1rem;
   text-align: justify;
+}
+
+.single-post-wrapper p {
+  text-align: justify;
+  margin-bottom: 1rem;
 }

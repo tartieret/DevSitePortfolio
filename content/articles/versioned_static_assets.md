@@ -7,15 +7,24 @@ Authors: me
 Summary: A robust strategy to manage static assets with Docker-based Django projects
 PreviewImage: images/blog/frontend.jpg
 
-# Introduction
+1. [Introduction](#introduction)  
+2. [The Problem with Static Files in Django Deployments](#problem)  
+    2.1 [Option 1: Run `collectstatic` During Deployment](#option1)  
+    2.2 [Option 2: Run `collectstatic` During Docker Build](#option2)
+3. [A Versioned Approach to Static Assets](#solution)  
+    3.1 [Overview](#overview)  
+    3.2 [Implementation Example with `django-storages`](#implementation)
+4. [Conclusion](#conclusion)
+
+# <a name="introduction"></a>Introduction
 
 When deploying Django applications with Docker, managing static files efficiently and safely is a common challenge. The need to use the `collectstatic` command—[which aggregates and processes all static files](https://docs.djangoproject.com/en/5.1/ref/contrib/staticfiles/#collectstatic) —complicates deployments, especially in multi-environment setups like staging and production. This article explores various approaches to handling static files and introduces a versioning strategy for more reliable deployments.
 
-# The Problem with Static Files in Django Deployments
+# <a name="introduction"></a>The Problem with Static Files in Django Deployments
 
 The `collectstatic` command is essential in Django to gather static files from various apps and prepare them for serving via a CDN from a storage service like AWS S3 or Azure Blob Storage. However, this step introduces deployment complexities:
 
-## Option 1: Run `collectstatic` During Deployment
+## <a name="option1"></a>Option 1: Run `collectstatic` During Deployment
 
 One approach is to avoid running `collectstatic` during the Docker build process and instead execute it during deployment for each environment (e.g., staging or production).
 
@@ -25,7 +34,7 @@ Problems:
 * **Discrepancies Between Environments**: `collectstatic` often performs additional optimizations like file compression (e.g., via `django-compressor`). Running it multiple times for different environments increases the risk of inconsistencies.
 * **Rollback Challenges**: Rolling back a deployment requires re-running `collectstatic` for the previous version. This can be time-consuming, taking several minutes or even tens of minutes, and complicates rapid recovery.
 
-## Option 2: Run `collectstatic` During Docker Build
+## <a name="option1"></a>Option 2: Run `collectstatic` During Docker Build
 
 Another approach is to execute `collectstatic` as part of the Docker build process.
 
@@ -34,7 +43,9 @@ Challenges:
 * **Risk of Overwriting Files**: If the new static files are pushed to the same storage location used by the production environment, there is a risk of overwriting or corrupting existing files.
 * **Increased Build Time**: Running `collectstatic` during the build process increases the time required to build the Docker image.
 
-# A Versioned Approach to Static Assets
+# <a name="solution"></a>A Versioned Approach to Static Assets
+
+## <a name="overview"></a>Overview
 
 A more robust solution is to incorporate a versioning strategy during the Docker build process. By using a `RELEASE_VERSION` build argument—following semantic versioning—we can organize static files by version in the storage account. Here’s how it works:
 
@@ -48,7 +59,7 @@ This strategy provides several benefits:
 * **Environment Consistency**: All environments use the same set of static files for a given version, eliminating discrepancies.
 * **Preservation of Static Files**: Files from different versions are stored separately, avoiding overwrites and corruption. This approach also facilitates concurrent deployments and aligns well with blue-green deployment strategies, as each version's static files remain isolated and accessible without interference. When deploying a new version in a cluster, containers are typically updated incrementally rather than all at once. With this method, each running version maintains access to its specific static files until all containers are successfully updated to the latest version.
 
-## Implementation Example with `django-storages`
+## <a name="implementation"></a>Implementation Example with `django-storages`
 
 `django-storages` is a typical package that simplifies using remote storage accounts in a Django application (see documentation at [https://django-storages.readthedocs.io](https://django-storages.readthedocs.io)).
 
@@ -209,11 +220,11 @@ docker push your-app:$VERSION
 
 ```
 
-## Key Considerations
+### Key Considerations
 
 * **Storage Costs**: Versioning static files increases storage usage. Without the approach described here, it's very hard to free space as the static files accumulate in the same folder. With this approach, it's easy to delete the folder matching old versions of the application that we don't intend to use in production anymore.
 * **Environment Setup**: Since the Docker image contains the reference to the storage account as an environment variable, the Docker image can be deployed anywhere easily, ensuring all environments fetch static files from the correct version folder.
 
-# Conclusion
+# <a name="conclusion"></a>Conclusion
 
 By adopting a versioning strategy for static assets, you can address key challenges in Django deployments effectively. This approach ensures seamless rollbacks, maintains environment consistency, and avoids file overwrites or corruption. Additionally, because the Docker image includes environment-independent references to the storage account, deployment is streamlined across environments. While this strategy requires some upfront configuration and storage management, its reliability and scalability make it a worthwhile investment for production-grade applications.

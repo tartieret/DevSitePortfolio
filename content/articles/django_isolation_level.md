@@ -171,7 +171,7 @@ A full description of transaction guarantees and isolation levels is outside the
 * PostgreSQL transaction isolation: <https://www.postgresql.org/docs/current/transaction-iso.html>
 * Designing Data-Intensive Applications, by Martin Kleppman (Chapter 7): <https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/>
 
-## <a name="solutions"></a>3. Solutions to Avoid Lost Updates
+## <a name="solutions"></a> 3. Solutions to Avoid Lost Updates
 
 ### <a name="solution1"></a>Solution 1: Atomic Write with `F()` Expressions
 
@@ -273,7 +273,7 @@ Running our test script again, we can see that the counter is properly increment
 
 ![image.png](/images/blog/Avoiding%20Lost%20Updates%20in%20Django/gyqaDFAPfbH3Dl-image.png)
 
-## <a name="conclusion"></a>Conclusion
+## <a name="conclusion"></a>5. Conclusion
 
 Lost updates are a common issue when using the default **Read Committed** isolation level in relational databases. Ignoring this issue can lead to concurrency bugs that often manifest at higher scales or under heavy load.
 

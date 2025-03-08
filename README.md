@@ -13,3 +13,5 @@ This blog uses [Pelican](http://blog.getpelican.com/), a static site generator p
 3. Activate your environment
 4. Run ```pelican content``` to generate the static output
 5. Run ```pelican --serve``` to serve the site on localhost
+
+In development, run: ```pelican -l -r``` for live reloading

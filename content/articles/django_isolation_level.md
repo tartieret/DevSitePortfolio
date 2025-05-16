@@ -99,7 +99,7 @@ Here, when the `/counters/increment/<name>/` endpoint is called, it retrieves th
 
 Using the admin portal, let's create a first counter called "test," with initial value of zero:
 
-![image.png](media_Avoiding%20Lost%20Updates%20in%20Django/3N_vqGmHSjWAMG-image.png)
+![image.png](/images/blog/Avoiding%20Lost%20Updates%20in%20Django/3N_vqGmHSjWAMG-image.png)
 
 ### <a name="simulating-concurrent-requests"></a>Simulating Concurrent Requests
 

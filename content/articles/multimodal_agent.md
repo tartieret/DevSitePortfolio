@@ -44,25 +44,29 @@ My agent is built on a ReAct (Reasoning + Acting) architecture, which allows it 
 
 What makes my agent particularly powerful is the comprehensive set of tools that I built:
 
-1. **Media Processing Tools**:
-   - `analyze_audio`: Extracts and analyzes content from audio files
-   - `analyze_image`: Describes and extracts information from images
-   - `get_video_transcript`: Transcribes and analyzes video content
+**Media Processing Tools**:
 
-2. **Data Processing Tools**:
-   - `load_file_or_url`: Loads and parses files of various formats
-   - `unzip`: Extracts content from compressed files
-   - `calculator`: Performs mathematical calculations
-   - `convert_unit`: Handles unit conversions
-   - `run_python`: Executes Python code for complex calculations
+- `analyze_audio`: Extracts and analyzes content from audio files
+- `analyze_image`: Describes and extracts information from images
+- `get_video_transcript`: Transcribes and analyzes video content
 
-3. **Web Interaction Tools**:
-   - `web_search_tool`: Searches the web for information
-   - Browser tools (`get_browser_tools`): Allow the agent to navigate and extract information from websites
-   - `semantic_tools`: Process and understand semantic content
+**Data Processing Tools**:
 
-4. **Specialized Tools**:
-   - `chess`: Analyzes chess positions and suggests moves
+- `load_file_or_url`: Loads and parses files of various formats
+- `unzip`: Extracts content from compressed files
+- `calculator`: Performs mathematical calculations
+- `convert_unit`: Handles unit conversions
+- `run_python`: Executes Python code for complex calculations
+
+**Web Interaction Tools**:
+
+- `web_search_tool`: Searches the web for information
+- Browser tools (`get_browser_tools`): Allow the agent to navigate and extract information from websites
+- `semantic_tools`: Process and understand semantic content
+
+**Specialized Tools**:
+
+- `chess`: Analyzes chess positions and suggests moves
 
 This diverse toolset allows the agent to tackle a wide variety of questions, from simple text-based queries to complex multi-modal challenges.
 

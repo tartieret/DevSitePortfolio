@@ -1,0 +1,276 @@
+/* ========================================
+   ARTICLE READABILITY IMPROVEMENTS
+   ======================================== */
+
+/* Base article typography for better readability */
+.post-content {
+  font-size: 1.125rem; /* 18px - larger for better readability */
+  line-height: 1.7; /* More breathing room */
+  color: #2c3e50;
+  max-width: 65ch; /* Optimal line length for reading */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Paragraph spacing for better visual rhythm */
+.post-content p {
+  margin-bottom: 1.5rem;
+  text-align: left; /* Left-aligned is more readable than justified */
+}
+
+/* Headings - improved visual hierarchy */
+.post-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  padding-top: 1rem;
+  border-top: 2px solid #e2e8f0;
+  color: #1a202c;
+  line-height: 1.3;
+}
+
+/* First h2 doesn't need top border */
+.post-content > h2:first-child {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.post-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-left: 0.75rem;
+  border-left: 4px solid #5a67d8;
+  color: #2d3748;
+  line-height: 1.4;
+}
+
+.post-content h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  color: #4a5568;
+  line-height: 1.5;
+}
+
+/* Lists - better spacing and hierarchy */
+.post-content ul,
+.post-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+
+.post-content li {
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+}
+
+/* Nested lists */
+.post-content li > ul,
+.post-content li > ol {
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Inline code - improved contrast */
+.post-content :not(pre) > code {
+  background: #f7fafc;
+  color: #c53030;
+  font-size: 0.9em;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  border: 1px solid #e2e8f0;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  white-space: nowrap;
+}
+
+/* Code blocks - better readability and mobile support */
+.post-content pre {
+  background: #1e293b;
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 2rem 0;
+  border: 1px solid #334155;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-content pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  border: none;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  white-space: pre;
+}
+
+/* Strong emphasis - better visibility */
+.post-content strong {
+  font-weight: 700;
+  color: #1a202c;
+}
+
+/* Links - improved accessibility */
+.post-content a {
+  color: #5a67d8;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: color 0.2s ease;
+}
+
+.post-content a:hover {
+  color: #434190;
+  text-decoration-thickness: 2px;
+}
+
+.post-content a:focus {
+  outline: 2px solid #5a67d8;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Images - responsive and centered */
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Blockquotes - visual distinction */
+.post-content blockquote {
+  border-left: 4px solid #5a67d8;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: #4a5568;
+}
+
+/* ========================================
+   MOBILE RESPONSIVENESS
+   ======================================== */
+
+@media (max-width: 768px) {
+  .post-content {
+    font-size: 1rem;
+    line-height: 1.65;
+    padding: 0 1rem;
+  }
+
+  .post-content h2 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .post-content h3 {
+    font-size: 1.25rem;
+    margin-top: 1.75rem;
+  }
+
+  .post-content h4 {
+    font-size: 1.125rem;
+    margin-top: 1.5rem;
+  }
+
+  .post-content pre {
+    font-size: 0.85rem;
+    padding: 1rem;
+    margin: 1.5rem -1rem; /* Bleed to edges on mobile */
+    border-radius: 0;
+  }
+
+  .post-content ul,
+  .post-content ol {
+    padding-left: 1.5rem;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY IMPROVEMENTS
+   ======================================== */
+
+/* Skip to content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #5a67d8;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Focus visible for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid #5a67d8;
+  outline-offset: 2px;
+}
+
+/* Ensure sufficient color contrast */
+.post-content {
+  color: #2c3e50;
+}
+
+/* Print styles for better document printing */
+@media print {
+  .post-content {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+    max-width: none;
+  }
+
+  .post-content pre {
+    background: #f5f5f5;
+    color: #000;
+    border: 1px solid #ccc;
+  }
+
+  .post-content a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  .post-content img {
+    max-width: 100%;
+    page-break-inside: avoid;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .post-content {
+    color: #000;
+  }
+
+  .post-content a {
+    text-decoration-thickness: 2px;
+  }
+
+  .post-content code {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .post-content a {
+    transition: none;
+  }
+}

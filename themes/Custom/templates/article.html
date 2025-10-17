@@ -12,7 +12,7 @@
 
 {% endblock %}
 
-{% block title %} &ndash; {{ article.title|striptags|escape }}{% endblock %}
+{% block title %}{{ article.title|striptags|escape }}{% endblock %}
 
 {% block header_intro %}
   <div class="header-intro theme-bg-primary text-white py-5">
@@ -47,7 +47,7 @@
     </script>
   {% endif %}
 
-  <div>
+  <div class="post-content">
     {{ article.content }}
 
     <p>

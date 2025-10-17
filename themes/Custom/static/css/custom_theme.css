@@ -47,3 +47,75 @@ h3 {
   text-align: justify;
   margin-bottom: 1rem;
 }
+
+/* Article content */
+
+.post-content h3,
+.post-content h4 {
+  scroll-margin-top: 84px; /* helpful if you have a fixed header */
+  line-height: 1.35;
+  color: var(--heading-color, #24292f);
+  margin-bottom: 0.4em;
+}
+/* Stronger, more “section” look */
+.post-content h3 {
+  font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  font-weight: 700;
+  margin-top: 2.2em;
+  padding-left: 0.55rem;
+  border-left: 3px solid var(--accent, #5a6dff);
+  letter-spacing: 0.1px;      /* tiny boost to presence */
+}
+
+/* Subsection: clearly smaller + lighter, no accent bar */
+.post-content h4 {
+  font-size: clamp(1.05rem, 0.98rem + 0.3vw, 1.2rem);
+  font-weight: 600;
+  margin-top: 1.4em;
+  color: color-mix(in oklab, var(--heading-color) 88%, black 12%);
+}
+
+/* Optional: tighten spacing if an h4 immediately follows an h3 */
+.post-content h3 + h4 {
+  margin-top: 0.9em;
+}
+
+/* Optional: section “grouping” – slightly more space before h3 than after */
+.post-content h3 { margin-bottom: 0.6em; }
+.post-content h4 { margin-bottom: 0.35em; }
+
+/* If your theme auto-adds anchor links, prevent the accent bar overlap */
+.post-content h3 .headerlink,
+.post-content h4 .headerlink {
+  margin-left: 0.25rem;
+}
+
+/* Add breathing room after sublists */
+.post-content li > ul,
+.post-content li > ol {
+  margin-top: 0.4em;   /* space before nested list */
+  margin-bottom: 0.8em; /* space after nested list */
+}
+
+/* Optional: tweak the indentation if it’s too deep */
+.post-content ul ul,
+.post-content ol ol {
+  margin-left: 1.2em; /* or smaller if your theme already indents a lot */
+}
+
+/* Inline code (not code blocks) */
+.post-content code {
+  background: color-mix(in srgb, var(--background, #fff) 90%, #444);
+  color: #b44; /* softer reddish-brown tone */
+  font-size: 0.95em;
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+}
+
+/* If you use dark mode support */
+@media (prefers-color-scheme: dark) {
+  .post-content code {
+    background: color-mix(in srgb, #222 90%, white);
+    color: #ffb86c; /* soft amber instead of bright red */
+  }
+}

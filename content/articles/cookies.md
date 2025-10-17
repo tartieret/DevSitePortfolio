@@ -7,10 +7,6 @@ Authors: me
 Summary: Clarifying how cookies and CSRF protection work together
 PreviewImage: images/blog/cookies.png
 
---------------------------------------------------------
-    
-# Understanding Cookies and CSRF in Django
-
 ## Intro
 
 Over the past few weeks, as part of our annual SOC II audit, I've been reviewing the security of how authentication workflow. I wrote this article to clarify how some concepts work in our products for the developers on my team, and thought this could be useful to others.

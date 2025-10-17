@@ -7,9 +7,6 @@ Authors: me
 Summary: Building a multi-modal AI agent that performs well on the GAIA benchmark.
 PreviewImage: images/blog/gaia.png
 
-
-# Exploring Multi-Modal AI Agents: Lessons from the GAIA Benchmark
-
 As artificial intelligence evolves, the potential for agents to tackle complex, real-world tasks autonomously is becoming increasingly tangible. In this post, I reflect on my experience with the [AI Agent course on Hugging Face](https://huggingface.co/learn/agents-course/en/unit0/introduction) and the process of building an agent for the GAIA benchmark—a challenge that highlights both the promise and the limitations of current AI systems.
 
 ## The Hugging Face AI Agent Course and the Challenge

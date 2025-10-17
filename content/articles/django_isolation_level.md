@@ -7,10 +7,6 @@ Authors: me
 Summary: Save your future self from sleepless nights and learn to prevent sneaky concurrency bugs
 PreviewImage: images/blog/database.jpg
 
-# Avoiding Lost Updates in Web Applications
-
---------------------------------------------------------
-
 1. [Introduction](#introduction)  
 2. [The Problem: Lost Updates with a Django API Endpoint](#problem)  
     2.1 [Demo App](#demo-app)  

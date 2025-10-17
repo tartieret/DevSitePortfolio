@@ -11,6 +11,19 @@ PreviewImage: images/blog/cookies.png
 
 Over the past few weeks, as part of our annual SOC II audit, I've been reviewing the security of how authentication workflow. I wrote this article to clarify how some concepts work in our products for the developers on my team, and thought this could be useful to others.
 
+### Table of Contents
+
+1. [What Cookies Actually Are](#1-what-cookies-actually-are)
+2. [How Django Session Authentication Works](#2-how-django-session-authentication-works)
+3. [What CSRF Attacks Are (and Why We Care)](#3-what-csrf-attacks-are-and-why-we-care)
+4. [How Django's CSRF Protection Stops This](#4-how-djangos-csrf-protection-stops-this)
+5. [How Cookie Attributes Keep Things Safe](#5-how-cookie-attributes-keep-things-safe)
+    - [HttpOnly](#httponly)
+    - [Secure](#secure)
+    - [Path](#path)
+    - [SameSite](#samesite)
+    - [Expires / Max-Age](#expires--max-age)
+
 ## 1. What Cookies Actually Are
 
 Cookies are small pieces of data that your browser stores for a website. Every time your browser sends a request to that site, it automatically includes any cookies that belong to it.

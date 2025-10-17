@@ -103,19 +103,43 @@ h3 {
   margin-left: 1.2em; /* or smaller if your theme already indents a lot */
 }
 
-/* Inline code (not code blocks) */
-.post-content code {
+/* Inline code (as before, subtle) */
+.post-content :not(pre) > code {
   background: color-mix(in srgb, var(--background, #fff) 90%, #444);
-  color: #b44; /* softer reddish-brown tone */
+  color: #b44;
   font-size: 0.95em;
   padding: 0.15em 0.35em;
   border-radius: 4px;
 }
 
-/* If you use dark mode support */
+/* Code blocks */
+.post-content pre {
+  background: #f6f8fa; /* light gray neutral background */
+  color: #24292f;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  padding: 1em 1.2em;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 1.2em 0;
+  border: 1px solid #e2e2e2;
+}
+
+/* Optional: refine syntax highlight colors if your theme uses pygments */
+.post-content pre code {
+  background: none; /* prevent double background */
+  color: inherit;
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+}
+
+/* Dark mode */
 @media (prefers-color-scheme: dark) {
-  .post-content code {
-    background: color-mix(in srgb, #222 90%, white);
-    color: #ffb86c; /* soft amber instead of bright red */
+  .post-content pre {
+    background: #1e1e1e;
+    color: #ddd;
+    border-color: #333;
+  }
+  .post-content pre code {
+    color: inherit;
   }
 }

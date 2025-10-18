@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 import os
+from datetime import datetime
 
 # ----------------------------------
 # General site settings
@@ -59,6 +60,7 @@ CC_LICENSE = {
 }
 
 COPYRIGHT_YEAR = 2018
+CURRENT_YEAR = datetime.now().year
 
 DEFAULT_PAGINATION = 10
 

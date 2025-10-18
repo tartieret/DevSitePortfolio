@@ -1,0 +1,417 @@
+/* ========================================
+   ARTICLE READABILITY IMPROVEMENTS
+   ======================================== */
+
+/* Base article typography for better readability */
+.post-content {
+  font-size: 1.125rem; /* 18px - larger for better readability */
+  line-height: 1.7; /* More breathing room */
+  color: #2c3e50;
+  max-width: 65ch; /* Optimal line length for reading */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Paragraph spacing for better visual rhythm */
+.post-content p {
+  margin-bottom: 1.5rem;
+  text-align: left; /* Left-aligned is more readable than justified */
+}
+
+/* Headings - improved visual hierarchy */
+.post-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  padding-top: 1rem;
+  border-top: 2px solid #e2e8f0;
+  color: #1a202c;
+  line-height: 1.3;
+}
+
+/* First h2 doesn't need top border */
+.post-content > h2:first-child {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.post-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-left: 0.75rem;
+  border-left: 4px solid #5a67d8;
+  color: #2d3748;
+  line-height: 1.4;
+}
+
+.post-content h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  color: #4a5568;
+  line-height: 1.5;
+}
+
+/* Lists - better spacing and hierarchy */
+.post-content ul,
+.post-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+
+.post-content li {
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+}
+
+/* Nested lists */
+.post-content li > ul,
+.post-content li > ol {
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Inline code - improved contrast */
+.post-content :not(pre) > code {
+  background: #f7fafc;
+  color: #c53030;
+  font-size: 0.9em;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  border: 1px solid #e2e8f0;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  white-space: nowrap;
+}
+
+/* Code blocks - better readability and mobile support */
+.post-content pre {
+  background: #1e293b;
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 2rem 0;
+  border: 1px solid #334155;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-content pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  border: none;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  white-space: pre;
+}
+
+/* Syntax highlighting overrides for dark background */
+/* Target .highlight div that wraps pre elements */
+.post-content .highlight { background: transparent; }
+.post-content .highlight pre { 
+  background: #1e293b;
+  color: #e2e8f0;
+}
+.post-content .highlight .hll { background-color: #334155; }
+.post-content .highlight .c { color: #94a3b8; font-style: italic; } /* Comments */
+.post-content .highlight .err { color: #fb7185; background-color: transparent; }
+.post-content .highlight .k,
+.post-content .highlight .kc,
+.post-content .highlight .kd,
+.post-content .highlight .kn,
+.post-content .highlight .kp,
+.post-content .highlight .kr,
+.post-content .highlight .ow { color: #c084fc; font-weight: 600; } /* Keywords - bright purple */
+.post-content .highlight .o { color: #cbd5e1; } /* Operators */
+.post-content .highlight .ch,
+.post-content .highlight .cm,
+.post-content .highlight .c1,
+.post-content .highlight .cs { color: #94a3b8; font-style: italic; } /* Comments */
+.post-content .highlight .cp { color: #a5b4fc; font-weight: 600; } /* Preprocessor */
+.post-content .highlight .gd { color: #fca5a5; background-color: transparent; }
+.post-content .highlight .ge { font-style: italic; }
+.post-content .highlight .gr { color: #f87171; }
+.post-content .highlight .gh { color: #94a3b8; }
+.post-content .highlight .gi { color: #86efac; background-color: transparent; }
+.post-content .highlight .go { color: #94a3b8; }
+.post-content .highlight .gp { color: #cbd5e1; }
+.post-content .highlight .gs { font-weight: 700; }
+.post-content .highlight .gu { color: #94a3b8; }
+.post-content .highlight .gt { color: #f87171; }
+.post-content .highlight .kt { color: #60a5fa; font-weight: 600; } /* Type - bright blue */
+.post-content .highlight .m,
+.post-content .highlight .mb,
+.post-content .highlight .mf,
+.post-content .highlight .mh,
+.post-content .highlight .mi,
+.post-content .highlight .mo,
+.post-content .highlight .il { color: #fbbf24; } /* Numbers - amber */
+.post-content .highlight .s,
+.post-content .highlight .s1,
+.post-content .highlight .s2,
+.post-content .highlight .sb,
+.post-content .highlight .sc,
+.post-content .highlight .sd,
+.post-content .highlight .se,
+.post-content .highlight .sh,
+.post-content .highlight .si,
+.post-content .highlight .sx,
+.post-content .highlight .dl,
+.post-content .highlight .sa { color: #a7f3d0; } /* Strings - green */
+.post-content .highlight .sr { color: #86efac; } /* Regex */
+.post-content .highlight .ss { color: #fcd34d; } /* Symbols */
+.post-content .highlight .na { color: #7dd3fc; } /* Attributes - sky blue */
+.post-content .highlight .nb { color: #60a5fa; } /* Built-ins - blue */
+.post-content .highlight .nc { color: #fbbf24; font-weight: 600; } /* Class names - amber */
+.post-content .highlight .no { color: #f472b6; } /* Constants - pink */
+.post-content .highlight .nd { color: #a78bfa; font-weight: 600; } /* Decorators */
+.post-content .highlight .ni { color: #c084fc; } /* Entities */
+.post-content .highlight .ne,
+.post-content .highlight .nf,
+.post-content .highlight .fm { color: #fbbf24; font-weight: 600; } /* Functions - amber */
+.post-content .highlight .nl { color: #f472b6; font-weight: 600; } /* Labels */
+.post-content .highlight .nn { color: #cbd5e1; } /* Namespaces */
+.post-content .highlight .nt { color: #60a5fa; } /* Tags - blue */
+.post-content .highlight .nv,
+.post-content .highlight .vc,
+.post-content .highlight .vg,
+.post-content .highlight .vi,
+.post-content .highlight .vm { color: #7dd3fc; } /* Variables - sky blue */
+.post-content .highlight .w { color: #64748b; }
+.post-content .highlight .bp { color: #60a5fa; } /* Built-in pseudo */
+.post-content .highlight .cpf { color: #94a3b8; font-style: italic; }
+.post-content .highlight .p { color: #cbd5e1; } /* Punctuation */
+
+/* Strong emphasis - better visibility */
+.post-content strong {
+  font-weight: 700;
+  color: #1a202c;
+}
+
+/* Links - improved accessibility */
+.post-content a {
+  color: #5a67d8;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: color 0.2s ease;
+}
+
+.post-content a:hover {
+  color: #434190;
+  text-decoration-thickness: 2px;
+}
+
+.post-content a:focus {
+  outline: 2px solid #5a67d8;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Images - responsive and centered */
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Blockquotes - visual distinction */
+.post-content blockquote {
+  border-left: 4px solid #5a67d8;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: #4a5568;
+}
+
+/* ========================================
+   MOBILE RESPONSIVENESS
+   ======================================== */
+
+@media (max-width: 768px) {
+  .post-content {
+    font-size: 1rem;
+    line-height: 1.65;
+    padding: 0 1rem;
+  }
+
+  .post-content h2 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .post-content h3 {
+    font-size: 1.25rem;
+    margin-top: 1.75rem;
+  }
+
+  .post-content h4 {
+    font-size: 1.125rem;
+    margin-top: 1.5rem;
+  }
+
+  .post-content pre {
+    font-size: 0.85rem;
+    padding: 1rem;
+    margin: 1.5rem -1rem; /* Bleed to edges on mobile */
+    border-radius: 0;
+  }
+
+  .post-content ul,
+  .post-content ol {
+    padding-left: 1.5rem;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY IMPROVEMENTS
+   ======================================== */
+
+/* Skip to content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #5a67d8;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Focus visible for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid #5a67d8;
+  outline-offset: 2px;
+}
+
+/* Ensure sufficient color contrast */
+.post-content {
+  color: #2c3e50;
+}
+
+/* Print styles for better document printing */
+@media print {
+  .post-content {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+    max-width: none;
+  }
+
+  .post-content pre {
+    background: #f5f5f5;
+    color: #000;
+    border: 1px solid #ccc;
+  }
+
+  .post-content a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  .post-content img {
+    max-width: 100%;
+    page-break-inside: avoid;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .post-content {
+    color: #000;
+  }
+
+  .post-content a {
+    text-decoration-thickness: 2px;
+  }
+
+  .post-content code {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .post-content a {
+    transition: none;
+  }
+}
+
+/* ========================================
+   TABLE OF CONTENTS STYLING
+   ======================================== */
+
+/* Table of Contents box - target by position in article */
+.post-content > h3:first-of-type {
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  border-left: none;
+  padding-left: 0;
+  font-weight: 600;
+}
+
+/* Style the first list after intro (TOC) */
+.post-content > h3:first-of-type + ul {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #5a67d8;
+  border-radius: 6px;
+  padding: 1.5rem 2rem;
+  margin: 1.5rem 0 2.5rem 0;
+}
+
+.post-content > h3:first-of-type + ul li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.post-content > h3:first-of-type + ul a {
+  color: #5a67d8;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.post-content > h3:first-of-type + ul a:hover {
+  text-decoration: underline;
+  color: #434190;
+}
+
+/* Nested TOC items (sub-sections) */
+.post-content > h3:first-of-type + ul ul {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  padding-left: 1.5rem;
+}
+
+.post-content > h3:first-of-type + ul ul li {
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+}
+
+/* Mobile TOC adjustments */
+@media (max-width: 768px) {
+  .post-content > h3:first-of-type + ul {
+    padding: 1rem 1.25rem;
+    margin: 1rem -1rem 2rem -1rem;
+    border-radius: 0;
+  }
+
+  .post-content > h3:first-of-type + ul ul {
+    padding-left: 1rem;
+  }
+}

@@ -34,8 +34,9 @@
 {% endblock %}
 
 {% block content %}
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <section class="single-post-wrapper single-col-max-width py-5 px-4 mx-auto">
-  <div class="section-row">
+  <div class="section-row" id="main-content">
 
   {% if GOOGLE_ADSENSE and GOOGLE_ADSENSE.ads.article_top %}
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

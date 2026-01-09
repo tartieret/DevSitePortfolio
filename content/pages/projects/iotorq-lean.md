@@ -6,7 +6,7 @@ Template: project_detail
 save_as: projects/iotorq-lean.html
 Technologies:python,django,vuejs,azure,sass,javascript,redis,postgresql,kafka,mqtt,docker
 Images:projects\LEAN\lean-dashboard.png,projects\LEAN\lean-notification.png,projects\LEAN\lean-report.png
-website:<https://panevo.com/software/lean-manufacturing-oee-software/>
+website: https://panevo.com/software/lean-manufacturing-oee-software/
 
 ### Project Background
 

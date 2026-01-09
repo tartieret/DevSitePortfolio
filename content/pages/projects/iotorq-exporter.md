@@ -6,7 +6,6 @@ Template: project_detail
 save_as: projects/iotorq-exporter.html
 Technologies:python,Qt
 Images:
-website:https://www.iotorq.com/
 
 ### Project Background
 

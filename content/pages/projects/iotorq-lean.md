@@ -8,13 +8,29 @@ Technologies:python,django,vuejs,azure,sass,javascript,redis,postgresql,kafka,mq
 Images:projects\LEAN\lean-dashboard.png,projects\LEAN\lean-notification.png,projects\LEAN\lean-report.png
 website: https://panevo.com/software/lean-manufacturing-oee-software/
 
-### Project Background
+### Real-time lean manufacturing and production performance platform
 
-At [Panevo](https://www.panevo.com), I built from a scratch the first version of a novel real-time data platform for lean manufacturing, used in fast-moving production lines. Sensors on production lines send data every second to our cloud-based systems, and live metrics are shown in real-time to operators. When the line stops, a notification is shown to the operator so that they enter the cause of the downtime, allowing the company to collect very detailed information about the efficiency of their manufacturing environment.
+ioTORQ LEAN is a real-time data platform designed to help industrial operators and manufacturing teams understand, monitor, and improve production performance on the factory floor.
 
-![Working principle](/images/projects/LEAN/lean-working-principle.png)
+The platform continuously collects high-frequency signals from production lines and assets, transforms them into live metrics, and presents them through dashboards used directly by operators, supervisors, and managers. As a product moves through a line, the corresponding metrics update in real time, allowing teams to immediately see the impact of stoppages, speed changes, or production events.
 
-Under the hood, data is processed through different backend services (MQTT broker, Kafka, Faust...) with real-time analysis, before being sent to storage (PostgreSQL) and for display in dashboards (Websockets). The platform runs on a cluster of virtual machines in Azure, orchestrated with Kubernetes and Docker Swarm (we are transitioning services from Swarm to AKS and this work is still ongoing).
+ioTORQ LEAN focuses on core lean manufacturing use cases such as real-time production tracking, downtime detection, and performance monitoring. It enables teams to identify losses as they happen, rather than relying on delayed reports or manual data collection, and supports continuous improvement efforts across single lines or multiple sites.
+
+### Real-time constraints and platform complexity
+
+Unlike traditional reporting or batch analytics systems, ioTORQ LEAN operates under strict real-time constraints.
+
+The platform is designed for 24/7 industrial environments where operators expect sub-second latency between what happens on the production line and what they see on screen. When a product enters, stops, or exits a process, the live dashboard must reflect that change immediately. This imposes strong requirements on data ingestion, processing, and delivery, as well as on system reliability.
+
+The platform handles continuous data streams, real-time metric calculations, and live dashboards while maintaining high availability and predictable performance.
+
+### Project and technical ownership
+
+I started building ioTORQ LEAN from scratch, initially working hands-on as the primary architect and developer alongside one other engineer. The first versions of the platform were designed, implemented, and deployed under tight timelines and limited resources, serving real industrial users in production environments within 8 months.
+
+As adoption grew, I led the evolution of the platform architecture to support increased data volumes, additional use cases, and multi-site deployments. This included designing scalable real-time data pipelines and ensuring the system could operate reliably in 24/7 industrial settings.
+
+I later hired and scaled the engineering team responsible for the platform, transitioning from direct implementation to technical leadership, architecture oversight, and product direction. 
 
 ### Key Features
 

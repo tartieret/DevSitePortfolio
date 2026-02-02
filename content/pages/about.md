@@ -4,6 +4,10 @@ Authors: me
 Summary: About me
 Template: about
 save_as: index.html
-intro: I'm a software developer building data platforms for industrial applications. Want to know how I may help your project? Check out my <a class="link-on-bg" href="resume.html">resume</a>.
+intro: I'm a product-minded CTO specializing in building and scaling data-intensive platforms for industrial and enterprise applications. Want to know how I may help your project? Check out my <a class="link-on-bg" href="resume.html">resume</a>.
 
-I have more than 13 years' experience leading software teams and building complex web applications. Below is a quick overview of my main technical skill sets and tools I use. Want to find out more about my experience? <a href="resume.html">Check out my online resume</a>.
+My work sits at the intersection of complex systems, real-time data, and business impact — helping organizations turn operational and energy data into actionable insights.
+
+Over more than 13 years in software and systems engineering, I’ve led teams, defined technology strategy, and shipped products that operate at scale. My experience spans from zero-to-one platform creation to enterprise adoption, with a strong emphasis on reliability, real-time performance, and security compliance.
+
+My background blends deep technical execution with product leadership and customer engagement across B2B and B2C domains. I’ve built industrial IoT platforms for lean manufacturing and energy management, and niche training tools used directly by professional communities.

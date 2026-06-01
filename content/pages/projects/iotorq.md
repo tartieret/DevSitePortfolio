@@ -5,7 +5,7 @@ Summary: Cloud platform for industrial energy management
 Template: project_detail
 save_as: projects/iotorq.html
 Technologies:python,django,vuejs,azure,sass,javascript,redis,rabbitmq,microsoft-sql-server,postgresql
-Images:projects\EMIS\screenshot1.png,projects\EMIS\screenshot2.png,projects\EMIS\screenshot3.png,projects\EMIS\screenshot4.png,projects\EMIS\screenshot5.png,projects\EMIS\screenshot6.jpg,projects\EMIS\screenshot7.png,projects\EMIS\screenshot8.jpg,projects\EMIS\screenshot9.png,projects\EMIS\screenshot10.png
+Images:projects\EMIS\screenshot1.png,projects\EMIS\screenshot2.png,projects\EMIS\screenshot3.png,projects\EMIS\screenshot4.png,projects\EMIS\screenshot5.png,projects\EMIS\screenshot6.png,projects\EMIS\screenshot7.png
 website: https://panevo.com/software/emis-energy-management-information-system-software/
 
 ### Cloud platform for industrial energy management

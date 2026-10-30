@@ -1,9 +1,10 @@
 Title: Brick by Brick 2024
 Date: 2025-02-01 00:00
-Authors: me
+Authors: Thomas Tartière
 Summary: Automating Building Data Classification
 Template: project_detail
 save_as: projects/brick-by-brick.html
+url: projects/brick-by-brick.html
 Technologies:python,scikit-learn
 Images:projects\brick.png
 repository:https://github.com/tartieret/BrickToBrick

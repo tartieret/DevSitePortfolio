@@ -3,7 +3,7 @@ Date: 2026-02-05 14:48
 Category: ai
 Tags: ai
 Slug: ai-compliance
-Authors: me
+Authors: Thomas Tartière
 Summary: A short deck on how AI ethics and emerging regulation translate into concrete expectations for developers building real systems.
 PreviewImage: images/blog/compliance.png
 

@@ -1,9 +1,10 @@
 Title: ioTORQ Data Exporter
 Date: 2019-04-11 00:00
-Authors: me
+Authors: Thomas Tartière
 Summary: ETL software to stream data out of industrial facilities
 Template: project_detail
 save_as: projects/iotorq-exporter.html
+url: projects/iotorq-exporter.html
 Technologies:python,Qt
 Images:
 

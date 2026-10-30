@@ -1,9 +1,10 @@
 Title: ioTORQ LEAN
 Date: 2019-04-11 00:00
-Authors: me
+Authors: Thomas Tartière
 Summary: Real-time data platform for Lean Manufacturing
 Template: project_detail
 save_as: projects/iotorq-lean.html
+url: projects/iotorq-lean.html
 Technologies:python,django,vuejs,azure,sass,javascript,redis,postgresql,kafka,mqtt,docker
 Images:projects\LEAN\lean-dashboard.png,projects\LEAN\lean-notification.png,projects\LEAN\lean-report.png
 website: https://panevo.com/software/lean-manufacturing-oee-software/

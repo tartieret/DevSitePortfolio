@@ -3,7 +3,7 @@ Date: 2025-10-17 15:49
 Category: django
 Tags: django
 Slug: understanding-cookies-and-csrf-with-django
-Authors: me
+Authors: Thomas Tartière
 Summary: Clarifying how cookies and CSRF protection work together
 PreviewImage: images/blog/cookies.png
 

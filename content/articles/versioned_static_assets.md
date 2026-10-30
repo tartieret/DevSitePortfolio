@@ -3,7 +3,7 @@ Date: 2024-12-31 16:34
 Category: django
 Tags: django,python,webdev
 Slug: django-versioned-static-assets
-Authors: me
+Authors: Thomas Tartière
 Summary: A robust strategy to manage static assets with Docker-based Django projects
 PreviewImage: images/blog/frontend.jpg
 

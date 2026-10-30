@@ -1,0 +1,38 @@
+# {{ AUTHOR }}
+
+> {{ SITEDESCRIPTION }}
+
+{{ AUTHOR }} is {{ AUTHOR_JOB_TITLE }} at {{ AUTHOR_EMPLOYER }}, leading technology, product and operations for enterprise data platforms used by industrial customers, with a background in software engineering, machine learning and energy systems.
+
+Areas of expertise:
+{% for group in SKILLS_OVERVIEW %}
+- {{ group.title }}: {{ group.skills|join(", ") }}
+{% endfor %}
+
+## Profile
+
+- [About]({{ SITEURL }}/): Overview, background and skills
+- [Resume]({{ SITEURL }}/resume.html): Work experience, education and skills
+- [Resume (PDF)]({{ SITEURL }}/docs/resume_tartieret.pdf): Downloadable resume
+- [Contact]({{ SITEURL }}/contact.html): How to get in touch
+{% set social_labels = {"linkedin": "LinkedIn", "github": "GitHub", "twitter": "X (Twitter)", "medium": "Medium"} %}
+{% for name, link in SOCIAL %}
+- [{{ social_labels.get(name, name) }}]({{ link }})
+{% endfor %}
+
+## Articles
+
+{% for article in articles %}
+- [{{ article.title|striptags }}]({{ SITEURL }}/{{ article.url }}): {{ article.summary|striptags|trim }} ({{ article.date.strftime("%Y-%m-%d") }})
+{% endfor %}
+
+## Projects
+
+{% for page in pages if page.template == "project_detail" %}
+- [{{ page.title|striptags }}]({{ SITEURL }}/{{ page.url }}): {{ page.summary|striptags|trim }}
+{% endfor %}
+
+## Optional
+
+- [Atom feed]({{ SITEURL }}/feeds/all.atom.xml): Full text of all articles
+- [Sitemap]({{ SITEURL }}/sitemap.xml)

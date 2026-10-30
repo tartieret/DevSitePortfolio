@@ -11,14 +11,21 @@ AUTHOR = "Thomas Tartière"
 SITENAME = "Thomas Tartière's blog"
 SITEURL = ""
 SITETITLE = AUTHOR
-SITESUBTITLE = "Full stack developper and machine learning engineer"
-SITEDESCRIPTION = "Thoughts and Writings"
+SITESUBTITLE = "Product-minded CTO building data platforms"
+SITEDESCRIPTION = (
+    "Thomas Tartière is a product-minded CTO who builds and scales "
+    "data-intensive platforms for industrial and enterprise applications. "
+    "Articles on AI, Django and software engineering, projects and resume."
+)
 BROWSER_COLOR = "#333"
 
 SITELOGO = "/images/logo.png"
 FAVICON = "/images/favicon.png"
 
 AUTHOR_PROFILE_IMAGE = "/images/profile.png"
+AUTHOR_JOB_TITLE = "Chief Technology Officer"
+AUTHOR_EMPLOYER = "Panevo"
+TWITTER_USERNAME = "thomas_tartiere"
 
 INDEX_SAVE_AS = "blog.html"
 
@@ -49,7 +56,7 @@ LINKS = (
 SOCIAL = (
     ("linkedin", "https://www.linkedin.com/in/thomastartiere/"),
     ("github", "https://github.com/tartieret"),
-    ("twitter", "https://twitter.com/thomas_tartiere"),
+    ("twitter", "https://x.com/thomas_tartiere"),
     ("medium", "https://medium.com/@thomas.tartiere"),
 )
 
@@ -81,12 +88,27 @@ SITEMAP = {
         "indexes": "daily",
         "pages": "monthly",
     },
+    # Keep the sitemap focused on real content, not listing pages
+    "exclude": [
+        r"^author/",
+        r"^authors\.html$",
+        r"^category/",
+        r"^categories\.html$",
+        r"^tag/",
+        r"^tags\.html$",
+        r"^archives\.html$",
+        r"^llms\.txt$",
+    ],
 }
+
+# Markdown summary of the site for AI agents (https://llmstxt.org)
+TEMPLATE_PAGES = {"llms.txt": "llms.txt"}
 
 STATIC_PATHS = ["images", "extra", "docs"]
 
 EXTRA_PATH_METADATA = {
     "extra/custom.css": {"path": os.path.join("extra", "custom.css")},
+    "extra/robots.txt": {"path": "robots.txt"},
 }
 CUSTOM_CSS = os.path.join("extra", "custom.css")
 

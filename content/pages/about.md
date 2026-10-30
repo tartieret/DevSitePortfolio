@@ -1,9 +1,10 @@
 Title: About
 Date: 2014-11-01 13:49
-Authors: me
+Authors: Thomas Tartière
 Summary: About me
 Template: about
 save_as: index.html
+url:
 intro: I'm a product-minded CTO specializing in building and scaling data-intensive platforms for industrial and enterprise applications. Want to know how I may help your project? Check out my <a class="link-on-bg" href="resume.html">resume</a>.
 
 My work sits at the intersection of complex systems, real-time data, and business impact — helping organizations turn operational and energy data into actionable insights.

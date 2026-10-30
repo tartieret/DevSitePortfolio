@@ -5,12 +5,9 @@
   <link id="theme-style" rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/resume.css">
 {% endblock %}
 
-{% block meta %}
-<meta name="description" content="Resume" />
+{% block description %}Resume of {{ AUTHOR }}, {{ AUTHOR_JOB_TITLE }} at {{ AUTHOR_EMPLOYER }}: experience, skills and education.{% endblock %}
 
-{% endblock %}
-
-{% block title %}My Resume{% endblock %}
+{% block title %}Resume | {{ AUTHOR }}{% endblock %}
 
 {% block header_intro %}
 

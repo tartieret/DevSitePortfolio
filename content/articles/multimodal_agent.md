@@ -3,7 +3,7 @@ Date: 2025-08-12 13:49
 Category: ai
 Tags: ai
 Slug: exploring-multi-modal-ai-agents
-Authors: me
+Authors: Thomas Tartière
 Summary: Building a multi-modal AI agent that performs well on the GAIA benchmark.
 PreviewImage: images/blog/gaia.png
 

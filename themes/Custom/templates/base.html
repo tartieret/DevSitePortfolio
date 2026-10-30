@@ -64,16 +64,16 @@
   <link href="{{ FEED_DOMAIN }}/{% if FEED_RSS_URL %}{{ FEED_RSS_URL }}{% else %}{{ FEED_RSS }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
   {% endif %}
   {% if CATEGORY_FEED_ATOM and category %}
-  <link href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_ATOM_URL %}{{ CATEGORY_FEED_ATOM_URL.format(slug='category.slug') }}{% else %}{{ CATEGORY_FEED_ATOM.format(slug='category.slug') }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
+  <link href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_ATOM_URL %}{{ CATEGORY_FEED_ATOM_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_ATOM.format(slug=category.slug) }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
   {% endif %}
   {% if CATEGORY_FEED_RSS and category %}
-  <link href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_RSS_URL %}{{ CATEGORY_FEED_RSS_URL.format(slug='category.slug') }}{% else %}{{ CATEGORY_FEED_RSS.format(slug='category.slug') }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
+  <link href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_RSS_URL %}{{ CATEGORY_FEED_RSS_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_RSS.format(slug=category.slug) }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
   {% endif %}
   {% if TAG_FEED_ATOM and tag %}
-  <link href="{{ FEED_DOMAIN }}/{% if TAG_FEED_ATOM_URL %}{{ TAG_FEED_ATOM_URL.format(slug='tag.slug') }}{% else %}{{ TAG_FEED_ATOM.format(slug='tag.slug') }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
+  <link href="{{ FEED_DOMAIN }}/{% if TAG_FEED_ATOM_URL %}{{ TAG_FEED_ATOM_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_ATOM.format(slug=tag.slug) }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
   {% endif %}
   {% if TAG_FEED_RSS and tag %}
-  <link href="{{ FEED_DOMAIN }}/{% if TAG_FEED_RSS_URL %}{{ TAG_FEED_RSS_URL.format(slug='tag.slug') }}{% else %}{{ TAG_FEED_RSS.format(slug='tag.slug') }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
+  <link href="{{ FEED_DOMAIN }}/{% if TAG_FEED_RSS_URL %}{{ TAG_FEED_RSS_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_RSS.format(slug=tag.slug) }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
   {% endif %}
 
   {% if FAVICON %}
@@ -93,10 +93,25 @@
     <meta name="msapplication-TileColor" content="{{ BROWSER_COLOR }}">
   {% endif %}
 
-  {% block meta %}
-    <meta name="author" content="{{ AUTHOR }}" />
-    <meta name="description" content="{{ SITEDESCRIPTION }}" />
-  {% endblock %}
+  <meta name="author" content="{{ AUTHOR }}" />
+  <meta name="description" content="{% block description %}{{ SITEDESCRIPTION }}{% endblock %}" />
+  {% block meta %}{% endblock %}
+
+  <!-- Canonical URL, Open Graph and Twitter cards -->
+  {% set canonical_url = SITEURL ~ '/' ~ (output_file if output_file != 'index.html' else '') %}
+  <link rel="canonical" href="{{ canonical_url }}" />
+  <meta property="og:site_name" content="{{ SITENAME }}" />
+  <meta property="og:type" content="{% block og_type %}website{% endblock %}" />
+  <meta property="og:title" content="{{ self.title()|striptags|trim|escape }}" />
+  <meta property="og:description" content="{{ self.description()|trim }}" />
+  <meta property="og:url" content="{{ canonical_url }}" />
+  <meta property="og:image" content="{% block og_image %}{{ SITEURL }}{{ AUTHOR_PROFILE_IMAGE }}{% endblock %}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@{{ TWITTER_USERNAME }}" />
+  <meta name="twitter:creator" content="@{{ TWITTER_USERNAME }}" />
+
+  <!-- Structured data (JSON-LD) -->
+  {% block structured_data %}{% endblock %}
 
   {% if GOOGLE_ADSENSE and GOOGLE_ADSENSE.page_level_ads %}
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

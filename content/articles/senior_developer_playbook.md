@@ -3,7 +3,7 @@ Date: 2026-01-09 19:00
 Category: development
 Tags: development
 Slug: a-senior-developer-playbook
-Authors: me
+Authors: Thomas Tartière
 Summary: Lesson learned from top performing senior developers.
 PreviewImage: images/blog/senior-dev.jpg
 

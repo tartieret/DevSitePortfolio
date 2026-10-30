@@ -3,7 +3,7 @@ Date: 2025-03-07 13:49
 Category: ai
 Tags: ai
 Slug: an-introduction-to-ai-agents
-Authors: me
+Authors: Thomas Tartière
 Summary: AI Agents for non-programmers
 PreviewImage: images/blog/ai_agents.png
 

@@ -1,9 +1,10 @@
 Title: Vehicle Detection system
 Date: 2019-04-11 00:00
-Authors: me
+Authors: Thomas Tartière
 Summary: How I built a vehicle detection system for self driving cars
 Template: project_detail
 save_as: projects/vehicle-detection.html
+url: projects/vehicle-detection.html
 Technologies:python,jupyter,opencv,numpy,scikit-learn
 Images:projects\vehicle.png
 repository:https://github.com/tartieret/Vehicle-Detection

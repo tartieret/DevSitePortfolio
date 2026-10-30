@@ -1,9 +1,10 @@
 Title: ORC World Map
 Date: 2019-04-11 00:00
-Authors: me
+Authors: Thomas Tartière
 Summary: A world overview of the ORC technology
 Template: project_detail
 save_as: projects/orc-world-map.html
+url: projects/orc-world-map.html
 Technologies:vuejs,bootstrap4,sass,javascript,python
 Images:projects\orc-world-map1.png,projects\orc-world-map2.png,projects\orc-world-map3.png,projects\orc-world-map4.png
 repository:<https://github.com/tartieret/ORC-World-Map>

@@ -5,12 +5,11 @@
 
 {% endblock %}
 
-{% block meta %}
-<meta name="description" content="Projects" />
+{% block description %}{{ page.summary|striptags|escape }}{% endblock %}
 
-{% endblock %}
+{% block og_image %}{% if page.images %}{{ SITEURL }}/images/{{ page.images.split(',')[0]|trim|replace('\\', '/') }}{% else %}{{ super() }}{% endif %}{% endblock %}
 
-{% block title %}{{page.title}}{% endblock %}
+{% block title %}{{ page.title }} | {{ AUTHOR }}{% endblock %}
 
 {% block header_intro %}
 

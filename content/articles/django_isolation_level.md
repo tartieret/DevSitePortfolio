@@ -3,7 +3,7 @@ Date: 2024-12-18 13:49
 Category: django
 Tags: django,python,webdev
 Slug: avoiding-lost-updates-in-web-applications
-Authors: me
+Authors: Thomas Tartière
 Summary: Save your future self from sleepless nights and learn to prevent sneaky concurrency bugs
 PreviewImage: images/blog/database.jpg
 

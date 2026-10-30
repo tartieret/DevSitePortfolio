@@ -4,12 +4,39 @@
 {% block page_specific_css %}
 {% endblock %}
 
-{% block meta %}
-<meta name="description" content="About me" />
+{% block title %}{{ AUTHOR }} | {{ SITESUBTITLE }}{% endblock %}
 
+{% block og_type %}profile{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{{ {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": SITEURL ~ "/#person",
+      "name": AUTHOR,
+      "url": SITEURL ~ "/",
+      "image": SITEURL ~ AUTHOR_PROFILE_IMAGE,
+      "jobTitle": AUTHOR_JOB_TITLE,
+      "worksFor": {"@type": "Organization", "name": AUTHOR_EMPLOYER},
+      "description": SITEDESCRIPTION,
+      "knowsAbout": SKILLS_OVERVIEW|map(attribute="skills")|sum(start=[]),
+      "sameAs": SOCIAL|map(attribute="1")|list
+    },
+    {
+      "@type": "WebSite",
+      "@id": SITEURL ~ "/#website",
+      "name": SITENAME,
+      "url": SITEURL ~ "/",
+      "description": SITEDESCRIPTION,
+      "author": {"@id": SITEURL ~ "/#person"}
+    }
+  ]
+}|tojson }}
+</script>
 {% endblock %}
-
-{% block title %}About me{% endblock %}
 
 {% block header_intro %}
   <div class="header-intro theme-bg-primary text-white py-5">

@@ -5,14 +5,46 @@
 <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments/{{ PYGMENTS_STYLE|default('github') }}.min.css">
 {% endblock %}
 
-{% block meta %}
-<meta name="author" content="{{ article.author.name }}" />
-<meta name="description" content="{{ article.summary|striptags|escape }}" />
-<meta name="keywords" content="{{ article.tags|join(', ')|escape }}">
+{% block description %}{{ article.summary|striptags|escape }}{% endblock %}
 
+{% block meta %}
+<meta name="keywords" content="{{ article.tags|join(', ')|escape }}">
+<meta property="article:published_time" content="{{ article.date.isoformat() }}" />
+{% if article.modified %}
+<meta property="article:modified_time" content="{{ article.modified.isoformat() }}" />
+{% endif %}
+<meta property="article:author" content="{{ article.author.name }}" />
 {% endblock %}
 
-{% block title %}{{ article.title|striptags|escape }}{% endblock %}
+{% block og_type %}article{% endblock %}
+
+{% block og_image %}{% if article.previewimage %}{{ SITEURL }}/{{ article.previewimage }}{% else %}{{ super() }}{% endif %}{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{{ {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": article.title|striptags,
+  "description": article.summary|striptags,
+  "url": SITEURL ~ "/" ~ article.url,
+  "mainEntityOfPage": SITEURL ~ "/" ~ article.url,
+  "image": SITEURL ~ "/" ~ (article.previewimage or AUTHOR_PROFILE_IMAGE[1:]),
+  "datePublished": article.date.isoformat(),
+  "dateModified": (article.modified or article.date).isoformat(),
+  "keywords": article.tags|join(", "),
+  "articleSection": article.category.name,
+  "author": {
+    "@type": "Person",
+    "@id": SITEURL ~ "/#person",
+    "name": AUTHOR,
+    "url": SITEURL ~ "/"
+  }
+}|tojson }}
+</script>
+{% endblock %}
+
+{% block title %}{{ article.title|striptags|escape }} | {{ AUTHOR }}{% endblock %}
 
 {% block header_intro %}
   <div class="header-intro theme-bg-primary text-white py-5">

@@ -1,9 +1,10 @@
 Title: QuakeImpact
 Date: 2026-09-10 00:00
-Authors: me
+Authors: Thomas Tartière
 Summary: A public-information site on what a major earthquake does to the Lower Mainland
 Template: project_detail
 save_as: projects/quakeimpact.html
+url: projects/quakeimpact.html
 Technologies:nextjs,react,typescript,tailwindcss,netlify
 website: https://quakeimpact.ca
 Images:projects/quakeimpact/home.png,projects/quakeimpact/after.png,projects/quakeimpact/water.png,projects/quakeimpact/highways.png

@@ -132,7 +132,6 @@ EMAIL_ACTION = "https://formspree.io/thomas.tartiere@gmail.com"
 SKILLS_OVERVIEW = (
     {
         "title": "Technology & Product Leadership",
-        "icon": "/images/web-icon.svg",
         "skills": [
             "Technology strategy",
             "Product leadership",
@@ -146,7 +145,6 @@ SKILLS_OVERVIEW = (
     },
     {
         "title": "Data Platforms & Software Engineering",
-        "icon": "/images/data-icon.svg",
         "skills": [
             "Python, Django",
             "Distributed systems and real-time data pipelines",
@@ -160,7 +158,6 @@ SKILLS_OVERVIEW = (
     },
     {
         "title": "Analytics & Industrial Systems",
-        "icon": "/images/other-skills-icon.svg",
         "skills": [
             "Advanced analytics and time-series analysis",
             "Machine learning and optimization",

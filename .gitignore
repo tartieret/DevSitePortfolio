@@ -151,3 +151,4 @@ output/*
 
 # Brainstorming / plan execution scratch
 .superpowers/
+.playwright-mcp/

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% set active_page = "projects" %}
 
 <!-- Page specific CSS -->
 {% block page_specific_css %}
@@ -107,11 +108,4 @@
 
 {% endblock %}
 
-{% block page_specific_js %}
-
-  <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/plugins/imagesloaded.pkgd.min.js"></script>
-  <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/plugins/isotope.pkgd.min.js"></script>
-
-  <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/isotope-custom.js"></script>
-
-{% endblock %}
+{% block page_specific_js %}{% endblock %}

@@ -17,12 +17,14 @@ SITEDESCRIPTION = (
     "data-intensive platforms for industrial and enterprise applications. "
     "Articles on AI, Django and software engineering, projects and resume."
 )
-BROWSER_COLOR = "#333"
+BROWSER_COLOR = "#0d1b2a"
 
 SITELOGO = "/images/logo.png"
-FAVICON = "/images/favicon.png"
+FAVICON = "/images/favicon.svg"
 
-AUTHOR_PROFILE_IMAGE = "/images/profile.png"
+# Full-size portrait for Open Graph and JSON-LD; smaller copy for on-page display
+AUTHOR_PROFILE_IMAGE = "/images/portrait.jpg"
+AUTHOR_PHOTO = "/images/portrait-600.jpg"
 AUTHOR_JOB_TITLE = "Chief Technology Officer"
 AUTHOR_EMPLOYER = "Panevo"
 TWITTER_USERNAME = "thomas_tartiere"

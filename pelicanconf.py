@@ -174,6 +174,36 @@ SKILLS_OVERVIEW = (
 )
 
 # ----------------------------------
+# HOMEPAGE
+
+# Credentials line above the hero headline; the first item is highlighted.
+HERO_CREDENTIALS = ("CTO, Panevo", "P.Eng.", "Vancouver")
+
+CAREER = (
+    {
+        "years": "2022 to now",
+        "role": "Chief Technology Officer",
+        "company": "Panevo",
+        "summary": "End-to-end ownership of technology, product, security and operations across two enterprise platforms.",
+    },
+    {
+        "years": "2017 to 2021",
+        "role": "Lead Developer",
+        "company": "Panevo",
+        "summary": "First architect and developer. Built the real-time energy data platform and the lean manufacturing platform.",
+    },
+    {
+        "years": "2012 to 2017",
+        "role": "R&D Engineer",
+        "company": "Enertime",
+        "summary": "Multi-million-dollar energy R&D projects across software, modeling and hardware.",
+    },
+)
+
+# Slugs from PROJECTS shown on the homepage, in order.
+SELECTED_PROJECTS = ("iotorq", "iotorq-lean", "a320expert")
+
+# ----------------------------------
 # PROJECTS
 # Shared by the Projects page and the homepage "Selected projects" list.
 # A project with slug None has no detail page and renders without a link.
@@ -310,3 +340,4 @@ PROJECTS = (
 
 _slugs = [p["slug"] for p in PROJECTS if p["slug"]]
 assert len(_slugs) == len(set(_slugs)), "duplicate project slug"
+assert all(s in _slugs for s in SELECTED_PROJECTS), "unknown SELECTED_PROJECTS slug"

@@ -593,3 +593,21 @@ ul, ol { color: var(--body); }
 @media (max-width: 520px) {
   .contact-form .field-row { grid-template-columns: 1fr; gap: 0; }
 }
+
+/* ---------- Skip link ---------- */
+
+.skip {
+  position: absolute;
+  left: 16px;
+  top: -48px;
+  z-index: 20;
+  background: var(--ink);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  text-decoration: none;
+}
+.skip:focus { top: 12px; color: #fff; }
+main:focus { outline: none; }

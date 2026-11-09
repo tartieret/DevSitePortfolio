@@ -64,3 +64,11 @@ def test_favicon_and_theme_color(site):
     assert soup.find("link", rel="icon", type="image/svg+xml") is not None
     assert soup.find("meta", attrs={"name": "theme-color"})["content"] == "#0d1b2a"
     assert soup.find("meta", property="og:image")["content"].endswith("/images/portrait.jpg")
+
+
+@pytest.mark.parametrize("rel", PAGES)
+def test_skip_link(site, rel):
+    soup = page(site, rel)
+    first_link = soup.body.find("a")
+    assert first_link["href"] == "#main" and "skip" in first_link.get("class", [])
+    assert soup.find("main", id="main") is not None

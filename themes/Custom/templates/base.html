@@ -124,6 +124,8 @@
   {% endfor %}
 {% endmacro %}
 
+  <a class="skip" href="#main">Skip to main content</a>
+
   <header class="site-header">
     <nav class="container site-nav" aria-label="Main">
       <a class="site-name" href="{{ SITEURL }}/">{{ AUTHOR }}</a>
@@ -135,7 +137,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main" tabindex="-1">
   {% block content %}
   {% endblock %}
   </main>

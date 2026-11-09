@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 {% set active_page = "writing" %}
 
-{% block title %}{{ SITENAME }} - Categories{% endblock %}
+{% block title %}Categories | {{ AUTHOR }}{% endblock %}
 
 {% block content %}
-    <h1>Categories on {{ SITENAME }}</h1>
-    <ul>
+<div class="container page">
+  <header class="page-head"><h1>Categories</h1></header>
+  <ul class="ruled-list index-list">
     {% for category, articles in categories|sort %}
-        <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a> ({{ articles|count }})</li>
+    <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a> <span class="muted num">{{ articles|count }} {{ "article" if articles|count == 1 else "articles" }}</span></li>
     {% endfor %}
-    </ul>
+  </ul>
+</div>
 {% endblock %}

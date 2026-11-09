@@ -42,9 +42,6 @@
   <!-- Page specific CSS -->
   {% block page_specific_css %}{% endblock %}
 
-  {% if CUSTOM_CSS %}
-  <link href="{{ SITEURL }}/{{ CUSTOM_CSS }}" rel="stylesheet">
-  {% endif %}
 
   {% if FEED_ALL_ATOM %}
   <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />

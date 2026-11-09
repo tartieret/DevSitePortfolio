@@ -109,10 +109,8 @@ TEMPLATE_PAGES = {"llms.txt": "llms.txt"}
 STATIC_PATHS = ["images", "extra", "docs"]
 
 EXTRA_PATH_METADATA = {
-    "extra/custom.css": {"path": os.path.join("extra", "custom.css")},
     "extra/robots.txt": {"path": "robots.txt"},
 }
-CUSTOM_CSS = os.path.join("extra", "custom.css")
 
 USE_LESS = True
 

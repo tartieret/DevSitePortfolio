@@ -1,10 +1,6 @@
 {% extends "base.html" %}
 {% set active_page = "writing" %}
 
-<!-- Page specific CSS -->
-{% block page_specific_css %}
-<link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments/{{ PYGMENTS_STYLE|default('github') }}.min.css">
-{% endblock %}
 
 {% block description %}{{ article.summary|striptags|escape }}{% endblock %}
 
@@ -47,97 +43,55 @@
 
 {% block title %}{{ article.title|striptags|escape }} | {{ AUTHOR }}{% endblock %}
 
-{% block header_intro %}
-  <div class="header-intro theme-bg-primary text-white py-5">
-    <div class="container text-center">
-
-      <h2 class="page-heading mb-1">{{ article.title }}</h2>
-      <div class="page-heading-tagline mx-auto mb-3">{{ article.summary }}</div>
-      {% if AUTHOR_PROFILE_IMAGE %}
-        <img class="profile-small d-inline-block rounded-circle mb-3" src="{{ AUTHOR_PROFILE_IMAGE }}" alt="">
-      {% endif %}
-      <ul class="page-heading-post-meta list-inline mb-0">
-        <li class="list-inline-item mr-3"><i class="far fa-clock mr-2"></i>{{ article.locale_date }}</li>
-        {% if 'post_stats' in PLUGINS %}
-          <li class="list-inline-item"><i class="fas fa-clock mr-2"></i>{{ article.stats['read_mins'] }} min read</li>
-        {% endif %}
-      </ul>
-    </div><!--//container-->
-  </div><!--//header-intro-->
-{% endblock %}
+{% block body_class %}article-page{% endblock %}
 
 {% block content %}
-<a href="#main-content" class="skip-link">Skip to main content</a>
-<section class="single-post-wrapper single-col-max-width py-5 px-4 mx-auto">
-  <div class="section-row" id="main-content">
+<div class="container page">
+  <article class="article">
+    <header class="article-head">
+      <p class="label muted"><a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></p>
+      <h1>{{ article.title }}</h1>
+      {% if article.summary %}<p class="article-dek">{{ article.summary|striptags }}</p>{% endif %}
+      <p class="article-meta muted">
+        <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+        {% if article.stats %} · {{ article.stats['read_mins'] }} min read{% endif %}
+      </p>
+    </header>
 
-  {% if GOOGLE_ADSENSE and GOOGLE_ADSENSE.ads.article_top %}
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <ins class="adsbygoogle ads-responsive"
-         data-ad-client="{{ GOOGLE_ADSENSE.ca_id }}"
-         data-ad-slot="{{ GOOGLE_ADSENSE.ads.article_top }}"></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  {% endif %}
-
-  <div class="post-content">
-    {{ article.content }}
-
-    <p>
-      {{ _('Posted on %(when)s in %(category)s',
-            when=article.locale_date,
-            category='<a href="%s/%s">%s</a>'|format(SITEURL, article.category.url, article.category)|safe) }}
-    </p>
-  </div>
-
-  <div class="tag-cloud">
-    <p>
-      {% if article.tags %}
-        {% for tag in article.tags %}
-        <a href="{{ SITEURL }}/{{ tag.url }}"" class="badge badge-secondary">{{ tag }}</a>
-        {% endfor %}
-      {% endif %}
-    </p>
-  </div>
-
-  {% if ADD_THIS_ID %}
-  <div class="center social-share">
-    <p>{{ _('Like this article? Share it with your friends!') }}</p>
-    <div class="addthis_native_toolbox"></div>
-    <div class="addthis_sharing_toolbox"></div>
-    <div class="addthis_inline_share_toolbox"></div>
-  </div>
-  {% endif %}
-
-  {% if article.related_posts %}
-    <div class="related-posts">
-      <h4>{{ _('You might enjoy') }}</h4>
-      <ul class="related-posts">
-      {% for related_post in article.related_posts %}
-        <li><a href="{{ SITEURL }}/{{ related_post.url }}">{{ related_post.title }}</a></li>
-      {% endfor %}
-      </ul>
+    <div class="prose">
+      {{ article.content }}
     </div>
-  {% elif ADD_THIS_ID %}
-    <div class="addthis_relatedposts_inline"></div>
+
+    {% if article.tags %}
+    <p class="article-tags muted">Tagged
+      {% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}
+    </p>
+    {% endif %}
+
+    <aside class="author-card">
+      <img src="{{ SITEURL }}{{ AUTHOR_PHOTO }}" alt="{{ AUTHOR }}" width="64" height="64">
+      <div>
+        <p><a href="{{ SITEURL }}/"><strong>{{ AUTHOR }}</strong></a></p>
+        <p class="muted">{{ AUTHOR_JOB_TITLE }} at {{ AUTHOR_EMPLOYER }}. I build and scale data-intensive platforms for industrial and enterprise applications.</p>
+      </div>
+    </aside>
+  </article>
+
+  {% set others = articles|reject("equalto", article)|list %}
+  {% if others %}
+  <section class="more-writing" aria-labelledby="more-title">
+    <div class="section-head">
+      <h2 id="more-title">More writing</h2>
+      <a href="{{ SITEURL }}/blog.html">All writing →</a>
+    </div>
+    <ul class="ruled-list link-list">
+      {% for other in others[:3] %}
+      <li><a href="{{ SITEURL }}/{{ other.url }}"><strong>{{ other.title }}</strong><span class="muted">{{ other.date.strftime("%B %Y") }}</span></a></li>
+      {% endfor %}
+    </ul>
+  </section>
   {% endif %}
-
-  {% if GOOGLE_ADSENSE and GOOGLE_ADSENSE.ads.article_bottom %}
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <ins class="adsbygoogle ads-responsive"
-         data-ad-client="{{ GOOGLE_ADSENSE.ca_id }}"
-         data-ad-slot="{{ GOOGLE_ADSENSE.ads.article_bottom }}"></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  {% endif %}
-
-  {% include "partial/disqus.html" %}
-
 </div>
-</section>
-
 {% endblock %}
 
 {% block page_specific_js %}{% endblock %}

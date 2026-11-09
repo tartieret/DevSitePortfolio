@@ -172,3 +172,141 @@ SKILLS_OVERVIEW = (
         ],
     },
 )
+
+# ----------------------------------
+# PROJECTS
+# Shared by the Projects page and the homepage "Selected projects" list.
+# A project with slug None has no detail page and renders without a link.
+
+PROJECT_FILTERS = (
+    ("web", "Web"),
+    ("data", "Data"),
+    ("machine-learning", "Machine Learning"),
+    ("energy", "Energy Sciences"),
+)
+
+PROJECTS = (
+    {
+        "slug": "iotorq-lean",
+        "title": "ioTORQ LEAN",
+        "summary": "A data platform for lean manufacturing and live production monitoring",
+        "thumb": "/images/projects/lean-thumb.png",
+        "filters": ["web", "data", "machine-learning"],
+        "technologies": ["Python/Django", "Kafka", "MS Azure", "B2B"],
+    },
+    {
+        "slug": "iotorq",
+        "title": "ioTORQ EMIS",
+        "summary": "A data platform for industrial energy management",
+        "thumb": "/images/projects/iotorq-saas-thumb.png",
+        "filters": ["web", "data", "machine-learning"],
+        "technologies": ["Python/Django", "VueJS", "MS Azure", "B2B"],
+    },
+    {
+        "slug": "jetlagcoach",
+        "title": "Jet Lag Coach",
+        "summary": "A mobile app that builds personalized plans to beat jet lag",
+        "thumb": "/images/projects/jetlagcoach-thumb.png",
+        "filters": ["web"],
+        "technologies": ["TypeScript/VueJS", "Capacitor", "Supabase", "B2C"],
+    },
+    {
+        "slug": "quakeimpact",
+        "title": "QuakeImpact",
+        "summary": "What a major earthquake does to the Lower Mainland, and for how long",
+        "thumb": "/images/projects/quakeimpact-thumb.png",
+        "filters": ["web", "data"],
+        "technologies": ["Next.js", "TypeScript", "Claude Code", "Codex"],
+    },
+    {
+        "slug": "a320expert",
+        "title": "A320 Expert",
+        "summary": "A training platform for Airbus A320 pilots",
+        "thumb": "/images/projects/a320expert-thumb.png",
+        "filters": ["web"],
+        "technologies": ["Python/Django", "Digital Ocean", "Stripe", "B2C"],
+    },
+    {
+        "slug": "brick-by-brick",
+        "title": "Brick by Brick 2024",
+        "summary": "Automating building data classification",
+        "thumb": "/images/projects/brick-thumb.png",
+        "filters": ["data", "energy", "machine-learning"],
+        "technologies": ["Machine Learning", "Time-series"],
+    },
+    {
+        "slug": "orc-world-map",
+        "title": "ORC World Map",
+        "summary": "The first complete database of ORC projects, giving an overview of the market",
+        "thumb": "/images/projects/orc-thumb.png",
+        "filters": ["web", "data", "energy"],
+        "technologies": ["VueJS", "Python", "Google Map API"],
+    },
+    {
+        "slug": "iotorq-exporter",
+        "title": "ioTORQ Data Exporter",
+        "summary": "ETL software to stream data out of industrial facilities",
+        "thumb": "/images/projects/iotorq-etl-thumb.png",
+        "filters": ["data", "web"],
+        "technologies": ["Python", "Desktop", "Qt"],
+    },
+    {
+        "slug": "breed-detector",
+        "title": "Dog Breed Detector",
+        "summary": "Using transfer learning to classify dog breeds in images",
+        "thumb": "/images/projects/dogbreed-thumb.png",
+        "filters": ["machine-learning"],
+        "technologies": ["Python", "Keras", "Flask", "Transfer Learning"],
+    },
+    {
+        "slug": "behavioral-cloning",
+        "title": "Self-Driving Car: Behavioural Cloning",
+        "summary": "Training a neural network to drive a car in a simulator",
+        "thumb": "/images/projects/cloning-thumb.png",
+        "filters": ["machine-learning"],
+        "technologies": ["Deep Learning", "Keras"],
+    },
+    {
+        "slug": "lane-finding",
+        "title": "Self-Driving Car: Lane Finding",
+        "summary": "Identifying lane boundaries in video from a front-facing car camera",
+        "thumb": "/images/projects/lanes-thumb.png",
+        "filters": ["machine-learning"],
+        "technologies": ["Deep Learning", "Keras", "OpenCV"],
+    },
+    {
+        "slug": "vehicle-detection",
+        "title": "Vehicle Detection",
+        "summary": "A vehicle detection system for self-driving cars",
+        "thumb": "/images/projects/vehicle-thumb.png",
+        "filters": ["machine-learning"],
+        "technologies": ["Python", "Keras", "OpenCV"],
+    },
+    {
+        "slug": "sanfrancisco",
+        "title": "San Francisco Incidents",
+        "summary": "Analyzing criminal incidents in San Francisco using real data from summer 2014",
+        "thumb": "/images/projects/sanfrancisco-thumb.png",
+        "filters": ["data"],
+        "technologies": ["Python", "Pandas", "Matplotlib"],
+    },
+    {
+        "slug": "seleco2",
+        "title": "SeleCO2",
+        "summary": "Large-scale thermo-electric energy storage using ground heat exchangers (R&D project)",
+        "thumb": "/images/projects/seleco2-thumb.png",
+        "filters": ["energy"],
+        "technologies": ["Python", "C++", "R&D"],
+    },
+    {
+        "slug": None,
+        "title": "Peak Alert",
+        "summary": "SMS alerts for electricity peaks in Ontario",
+        "thumb": "/images/projects/peakalert-thumb.png",
+        "filters": ["web"],
+        "technologies": ["Python", "Twilio", "Azure Function"],
+    },
+)
+
+_slugs = [p["slug"] for p in PROJECTS if p["slug"]]
+assert len(_slugs) == len(set(_slugs)), "duplicate project slug"

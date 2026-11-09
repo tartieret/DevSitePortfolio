@@ -566,3 +566,30 @@ ul, ol { color: var(--body); }
   .resume-section, .resume-row { break-inside: avoid; }
   .prose pre { white-space: pre-wrap; }
 }
+
+/* ---------- Contact ---------- */
+
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 72px; align-items: start; }
+.contact-text p { font-size: 18px; }
+.contact-form .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.contact-form .field { margin-bottom: 18px; }
+.contact-form label { display: block; font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  background: var(--page);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+}
+.contact-form textarea { resize: vertical; min-height: 180px; }
+.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(11, 85, 99, 0.18); }
+
+@media (max-width: 860px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 520px) {
+  .contact-form .field-row { grid-template-columns: 1fr; gap: 0; }
+}

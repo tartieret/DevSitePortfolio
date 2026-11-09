@@ -1,87 +1,44 @@
 {% extends "base.html" %}
 {% set active_page = "contact" %}
 
-<!-- Page specific CSS -->
-{% block page_specific_css %}
-{% endblock %}
 
 {% block description %}Get in touch with {{ AUTHOR }}.{% endblock %}
 
 {% block title %}Contact | {{ AUTHOR }}{% endblock %}
 
-{% block header_intro %}
-  <div class="header-intro theme-bg-primary text-white py-5">
-    <div class="container">
-      <h2 class="page-heading mb-0">Contact</h2>
-    </div><!--//container-->
-  </div><!--//header-intro-->
-{% endblock %}
+{% block body_class %}contact-page{% endblock %}
 
 {% block content %}
+{% set linkedin = (SOCIAL|selectattr(0, "equalto", "linkedin")|first)[1] %}
+<div class="container page">
+  <div class="contact-grid">
+    <header class="contact-intro">
+      <h1>Contact</h1>
+      <div class="contact-text">{{ page.content }}</div>
+      <p class="muted">You can also reach me on <a href="{{ linkedin }}" rel="noopener" target="_blank">LinkedIn</a>.</p>
+    </header>
 
-<section class="section py-5">
-        <div class="container">
-            <div class="row">
-		        <div class="contact-intro col-lg-8 mx-lg-auto mb-5 text-center">
-
-			        <img class="profile-small d-inline-block mx-auto rounded-circle mb-3" src="{{ AUTHOR_PROFILE_IMAGE }}" alt="">
-
-			        <div class="speech-bubble bg-white p-4 p-lg-5 shadow-sm">
-				        <p class="text-left mb-3">{{ page.content }}
-                <h6 class="font-weight-bold text-center mb-3">You can also find me on the following channels</h6>
-
-				        <ul class="social-list-color list-inline mb-0">
-                  {% for name, url in SOCIAL %}
-                    <li class="list-inline-item mb-3"><a class="{{name}}" href="{{url}}"><i class="fab fa-{{name}} fa-fw"></i></a></li>
-                  {% endfor %}
-               </ul><!--//social-list-->
-			        </div>
-
-		        </div><!--//contact-intro-->
-		        <form id="contact-form" class="contact-form col-lg-8 mx-lg-auto" method="post" action="{{ EMAIL_ACTION }}">
-              <input type="hidden" name="_subject" value="{{ EMAIL_SUBJECT }}" />
-
-              <h3 class="text-center mb-3">Get In Touch</h3>
-			        <div class="form-row">
-		                <div class="form-group col-md-6">
-		                    <label class="sr-only" for="cname">Name</label>
-		                    <input type="text" class="form-control" id="cname" name="name" placeholder="Name" minlength="2" required="" aria-required="true">
-		                </div>
-		                <div class="form-group col-md-6">
-		                    <label class="sr-only" for="cemail">Email</label>
-		                    <input type="email" class="form-control" id="cemail" name="_replyto" placeholder="Email" required="" aria-required="true">
-		                </div>
-		                <div class="form-group col-12">
-		                    <label class="sr-only" for="cmessage">Your message</label>
-		                    <textarea class="form-control" id="cmessage" name="message" placeholder="Enter your message" rows="10" required="" aria-required="true"></textarea>
-		                </div>
-                    <input type="text" name="_gotcha" style="display:none" />
-                    <input type="hidden" name="_next" value="#" />
-
-		                <div class="form-group col-12">
-		                  <button type="submit" class="btn btn-block btn-primary py-2">Send It</button>
-		                </div>
-		            </div><!--//form-row-->
-		        </form>
-
-            </div><!--//row-->
-        </div><!--//container-->
-    </section><!--//section-->
-
-  {% if GOOGLE_ADSENSE and GOOGLE_ADSENSE.ads.article_bottom %}
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <ins class="adsbygoogle ads-responsive"
-         data-ad-client="{{ GOOGLE_ADSENSE.ca_id }}"
-         data-ad-slot="{{ GOOGLE_ADSENSE.ads.article_bottom }}"></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  {% endif %}
-
+    <form class="contact-form" method="post" action="{{ EMAIL_ACTION }}">
+      <input type="hidden" name="_subject" value="{{ EMAIL_SUBJECT }}">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" hidden>
+      <div class="field-row">
+        <div class="field">
+          <label for="cname">Name</label>
+          <input type="text" id="cname" name="name" minlength="2" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="cemail">Email</label>
+          <input type="email" id="cemail" name="_replyto" required autocomplete="email">
+        </div>
+      </div>
+      <div class="field">
+        <label for="cmessage">Message</label>
+        <textarea id="cmessage" name="message" rows="8" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send message</button>
+    </form>
+  </div>
+</div>
 {% endblock %}
 
-{% block page_specific_js %}
-
-{% endblock %}
-
-
+{% block page_specific_js %}{% endblock %}

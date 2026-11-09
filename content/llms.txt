@@ -13,7 +13,6 @@ Areas of expertise:
 
 - [About]({{ SITEURL }}/): Overview, background and skills
 - [Resume]({{ SITEURL }}/resume.html): Work experience, education and skills
-- [Resume (PDF)]({{ SITEURL }}/docs/resume_tartieret.pdf): Downloadable resume
 - [Contact]({{ SITEURL }}/contact.html): How to get in touch
 {% set social_labels = {"linkedin": "LinkedIn", "github": "GitHub", "twitter": "X (Twitter)", "medium": "Medium"} %}
 {% for name, link in SOCIAL %}

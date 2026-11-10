@@ -12,8 +12,8 @@ Areas of expertise:
 ## Profile
 
 - [About]({{ SITEURL }}/): Role, career overview, selected projects and recent writing
-- [Resume]({{ SITEURL }}/resume.html): Work experience, education and skills
-- [Contact]({{ SITEURL }}/contact.html): How to get in touch
+- [Resume]({{ SITEURL }}/resume): Work experience, education and skills
+- [Contact]({{ SITEURL }}/contact): How to get in touch
 {% set social_labels = {"linkedin": "LinkedIn", "github": "GitHub", "twitter": "X (Twitter)", "medium": "Medium"} %}
 {% for name, link in SOCIAL %}
 - [{{ social_labels.get(name, name) }}]({{ link }})

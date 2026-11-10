@@ -1,10 +1,11 @@
 Title: Behavioral cloning
 Date: 2019-04-11 00:00
+Modified: 2026-11-09 17:07
 Authors: Thomas Tartière
 Summary: Convolutional neural network to drive a car!
 Template: project_detail
 save_as: projects/behavioral-cloning.html
-url: projects/behavioral-cloning.html
+url: projects/behavioral-cloning
 Technologies:python,jupyter,opencv,numpy,keras
 Images:projects\cloning.png
 repository:https://github.com/tartieret/Self-driving-car---Behavioral-Cloning-

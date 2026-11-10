@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{# Thin listing page: keep it out of search results, but let crawlers follow its links #}
+{% block robots %}noindex, follow{% endblock %}
 {% set active_page = "writing" %}
 
 {% block title %}Categories | {{ AUTHOR }}{% endblock %}

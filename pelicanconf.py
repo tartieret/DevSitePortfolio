@@ -8,14 +8,15 @@ from datetime import datetime
 # General site settings
 
 AUTHOR = "Thomas Tartière"
-SITENAME = "Thomas Tartière's blog"
+# Google shows the WebSite name next to results, so keep it to the person's name
+SITENAME = AUTHOR
 SITEURL = ""
 SITETITLE = AUTHOR
 SITESUBTITLE = "Product-minded CTO building data platforms"
+# Homepage meta description: keep under ~155 characters or search results cut it off
 SITEDESCRIPTION = (
     "Thomas Tartière is a product-minded CTO who builds and scales "
-    "data-intensive platforms for industrial and enterprise applications. "
-    "Articles on AI, Django and software engineering, projects and resume."
+    "data-intensive platforms for industrial and enterprise applications."
 )
 BROWSER_COLOR = "#0d1b2a"
 
@@ -27,9 +28,35 @@ AUTHOR_PROFILE_IMAGE = "/images/portrait.jpg"
 AUTHOR_PHOTO = "/images/portrait-600.jpg"
 AUTHOR_JOB_TITLE = "Chief Technology Officer"
 AUTHOR_EMPLOYER = "Panevo"
+AUTHOR_EMPLOYER_URL = "https://panevo.com/"
+# Facts for the Person JSON-LD. Only list what the site states visibly
+# (homepage credentials line and the resume's education section).
+AUTHOR_LOCATION = "Vancouver, British Columbia, Canada"
+AUTHOR_CREDENTIAL = "Professional Engineer (P.Eng.)"
+AUTHOR_ALUMNI = (
+    ("Stanford University", "https://www.stanford.edu/"),
+    ("Ecole Centrale Paris", "https://www.centralesupelec.fr/"),
+)
 TWITTER_USERNAME = "thomas_tartiere"
 
 INDEX_SAVE_AS = "blog.html"
+
+# Clean, extensionless URLs. Files are still written as .html; Netlify serves
+# /resume from resume.html, and _redirects sends /resume.html to /resume.
+# Every URL the site prints (links, canonicals, sitemap, feeds, JSON-LD,
+# llms.txt) must use this one form so search engines don't split pages.
+ARTICLE_URL = "{slug}"
+ARTICLE_SAVE_AS = "{slug}.html"
+CATEGORY_URL = "category/{slug}"
+CATEGORY_SAVE_AS = "category/{slug}.html"
+TAG_URL = "tag/{slug}"
+TAG_SAVE_AS = "tag/{slug}.html"
+AUTHOR_URL = "author/{slug}"
+AUTHOR_SAVE_AS = "author/{slug}.html"
+PAGINATION_PATTERNS = (
+    (1, "{name}", "{name}{extension}"),
+    (2, "{name}{number}", "{name}{number}{extension}"),
+)
 
 ROBOTS = "index, follow"
 
@@ -73,8 +100,8 @@ CURRENT_YEAR = datetime.now().year
 
 DEFAULT_PAGINATION = 10
 
-PLUGIN_PATHS = ["./pelican-plugins"]
-PLUGINS = ["sitemap", "post_stats"]  # 'i18n_subsites']
+PLUGIN_PATHS = ["./plugins", "./pelican-plugins"]
+PLUGINS = ["sitemap", "clean_sitemap_urls", "post_stats"]  # 'i18n_subsites']
 
 # JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 
@@ -100,16 +127,19 @@ SITEMAP = {
         r"^tags\.html$",
         r"^archives\.html$",
         r"^llms\.txt$",
+        r"^_redirects$",
     ],
 }
 
 # Markdown summary of the site for AI agents (https://llmstxt.org)
-TEMPLATE_PAGES = {"llms.txt": "llms.txt"}
+# Netlify _redirects, generated so it always lists every page (see content/_redirects)
+TEMPLATE_PAGES = {"llms.txt": "llms.txt", "_redirects": "_redirects"}
 
 STATIC_PATHS = ["images", "extra", "docs"]
 
 EXTRA_PATH_METADATA = {
     "extra/robots.txt": {"path": "robots.txt"},
+    "extra/_headers": {"path": "_headers"},
 }
 
 USE_LESS = True

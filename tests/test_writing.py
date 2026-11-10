@@ -17,10 +17,10 @@ def test_blog_list(site):
 def test_pagination_links(paginated_site):
     first = page(paginated_site, "blog.html")
     older = first.find("a", string=lambda s: s and "Older" in s)
-    assert older is not None and older["href"] == "/blog2.html"
+    assert older is not None and older["href"] == "/blog2"
     second = page(paginated_site, "blog2.html")
     newer = second.find("a", string=lambda s: s and "Newer" in s)
-    assert newer is not None and newer["href"] == "/blog.html"
+    assert newer is not None and newer["href"] == "/blog"
 
 
 def test_article_page(site):
@@ -35,7 +35,7 @@ def test_article_page(site):
     assert card.find("a", href="/") is not None
     more = soup.select(".more-writing li a")
     assert 2 <= len(more) <= 3
-    assert all(a["href"] != f"/{ARTICLE}" for a in more)
+    assert all(a["href"] != "/" + ARTICLE.removesuffix(".html") for a in more)
     source = (site / ARTICLE).read_text(encoding="utf-8")
     assert "disqus" not in source.lower() and "share-bar" not in source
 
@@ -55,7 +55,7 @@ def test_archive_templates_render(site):
         assert soup.find("nav") is not None, rel
         assert soup.find("h1") is not None, rel
         main = soup.find("main")
-        assert main.select("a[href$='.html']"), rel
+        assert main.select("a[href^='/']"), rel
 
 
 def test_custom_css_removed(site):

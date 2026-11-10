@@ -28,6 +28,12 @@ def resolve(site: Path, html_file: Path, url: str) -> Path | None:
     page_url = "http://site/" + html_file.relative_to(site).as_posix()
     path = unquote(urlsplit(urljoin(page_url, url)).path)
     target = site / path.lstrip("/")
+    if not path.endswith("/") and not target.suffix:
+        # Extensionless URL: Netlify serves /resume from resume.html, and
+        # prefers projects.html over the projects/ folder for /projects
+        html = target.with_name(target.name + ".html")
+        if html.exists() or not target.is_dir():
+            return html
     if path.endswith("/") or target.is_dir():
         target = target / "index.html"
     return target

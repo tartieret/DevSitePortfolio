@@ -23,7 +23,7 @@
 
   <div class="project-grid">
     {% for project in PROJECTS %}
-    {% set url = SITEURL ~ "/projects/" ~ project.slug ~ ".html" %}
+    {% set url = SITEURL ~ "/projects/" ~ project.slug %}
     <article class="project" data-filters="{{ project.filters|join(' ') }}">
       <a href="{{ url }}" tabindex="-1" aria-hidden="true">
         <img class="project-thumb" src="{{ SITEURL }}{{ project.thumb }}" alt="{{ project.title }}" loading="lazy">

@@ -281,7 +281,7 @@ In a Django application, you can prevent lost updates using the following techni
 
 Choosing the right approach depends on your application's requirements for consistency and performance.
 
-# <a name="references"></a>6. References and Further Reading
+## <a name="references"></a>6. References and Further Reading
 
 Below are resources that provide more context and depth to the topics discussed in this document:
 

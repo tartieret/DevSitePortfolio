@@ -14,7 +14,7 @@ def test_project_grid(site):
         assert entry.find("img").get("alt")
         heading = entry.find("h2")
         assert heading.get_text(strip=True) == project["title"]
-        assert heading.find("a")["href"] == f"/projects/{project['slug']}.html"
+        assert heading.find("a")["href"] == f"/projects/{project['slug']}"
         assert entry.select_one(".project-tech").get_text(strip=True) == " · ".join(project["technologies"])
 
 

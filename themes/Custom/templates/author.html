@@ -1,4 +1,6 @@
 {% extends "index.html" %}
+{# Thin listing page: keep it out of search results, but let crawlers follow its links #}
+{% block robots %}noindex, follow{% endblock %}
 
 {% block title %}Articles by {{ author }}{% endblock %}
 

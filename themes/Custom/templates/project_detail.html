@@ -7,6 +7,37 @@
 
 {% block title %}{{ page.title }} | {{ AUTHOR }}{% endblock %}
 
+{% block structured_data %}
+{% set first_image = (page.images or "").replace("\\", "/").split(",")|map("trim")|reject("equalto", "")|first %}
+{% set techs = [] %}
+{% for tech in (page.technologies or "").split(",")|map("trim")|reject("equalto", "") %}{% set _ = techs.append(TECH_LABELS.get(tech, tech)) %}{% endfor %}
+{% set url = SITEURL ~ "/" ~ page.url %}
+<script type="application/ld+json">
+{{ {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CreativeWork",
+      "name": page.title|striptags,
+      "description": page.summary|striptags,
+      "url": url,
+      "image": SITEURL ~ (("/images/" ~ first_image) if first_image else AUTHOR_PROFILE_IMAGE),
+      "keywords": techs|join(", "),
+      "dateModified": (page.modified or page.date).isoformat(),
+      "author": {"@id": SITEURL ~ "/#person", "@type": "Person", "name": AUTHOR, "url": SITEURL ~ "/"}
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Projects", "item": SITEURL ~ "/projects"},
+        {"@type": "ListItem", "position": 2, "name": page.title|striptags, "item": url}
+      ]
+    }
+  ]
+}|tojson }}
+</script>
+{% endblock %}
+
 {% block body_class %}project-page{% endblock %}
 
 {% block content %}
@@ -14,7 +45,7 @@
 <div class="container page">
   <article class="article">
     <header class="project-head">
-      <p class="label muted"><a href="{{ SITEURL }}/projects.html">Projects</a></p>
+      <p class="label muted"><a href="{{ SITEURL }}/projects">Projects</a></p>
       <h1>{{ page.title }}</h1>
       {% if page.summary %}<p class="article-dek">{{ page.summary|striptags }}</p>{% endif %}
       {% if page.technologies %}<p class="project-tech muted">{% for tech in page.technologies.split(",")|map("trim")|reject("equalto", "") %}{{ TECH_LABELS.get(tech, tech) }}{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}

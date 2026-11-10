@@ -5,6 +5,25 @@
 
 {% block title %}Writing | {{ AUTHOR }}{% endblock %}
 
+{% block structured_data %}
+{# Only on the blog index itself; tag, category and author pages extend this template #}
+{% if output_file.startswith("blog") %}
+{% set posts = [] %}
+{% for article in articles_page.object_list %}{% set _ = posts.append({"@type": "BlogPosting", "headline": article.title|striptags, "url": SITEURL ~ "/" ~ article.url, "datePublished": article.date.isoformat()}) %}{% endfor %}
+<script type="application/ld+json">
+{{ {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Writing | " ~ AUTHOR,
+  "url": SITEURL ~ "/blog",
+  "author": {"@id": SITEURL ~ "/#person", "@type": "Person", "name": AUTHOR, "url": SITEURL ~ "/"},
+  "isPartOf": {"@id": SITEURL ~ "/#website"},
+  "blogPost": posts
+}|tojson }}
+</script>
+{% endif %}
+{% endblock %}
+
 {% block content %}
 <div class="container page">
   <header class="page-head">

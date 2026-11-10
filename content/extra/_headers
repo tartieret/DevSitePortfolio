@@ -1,0 +1,10 @@
+# Netlify response headers.
+#
+# These machine-readable files should be fetched by crawlers and AI agents,
+# but never listed as pages in search results.
+/sitemap.xml
+  X-Robots-Tag: noindex
+/llms.txt
+  X-Robots-Tag: noindex
+/feeds/*
+  X-Robots-Tag: noindex

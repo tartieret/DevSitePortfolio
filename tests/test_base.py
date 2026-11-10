@@ -15,8 +15,8 @@ PAGES = [
     "a-senior-developer-playbook.html",
 ]
 
-NAV = {"/blog.html": "Writing", "/projects.html": "Projects", "/resume.html": "Resume", "/contact.html": "Contact"}
-CURRENT = {"blog.html": "/blog.html", "projects.html": "/projects.html", "resume.html": "/resume.html", "contact.html": "/contact.html"}
+NAV = {"/blog": "Writing", "/projects": "Projects", "/resume": "Resume", "/contact": "Contact"}
+CURRENT = {"blog.html": "/blog", "projects.html": "/projects", "resume.html": "/resume", "contact.html": "/contact"}
 
 LEGACY = ("bootstrap", "jquery", "fontawesome", "font-awesome", "isotope", "share-bar", "Roboto", "3rdwavemedia")
 
@@ -79,11 +79,11 @@ def test_skip_link(site, rel):
 @pytest.mark.parametrize(
     "rel,href,expected",
     [
-        ("projects.html", "/projects.html", "page"),
-        ("blog.html", "/blog.html", "page"),
-        ("projects/a320expert.html", "/projects.html", "true"),
-        ("a-senior-developer-playbook.html", "/blog.html", "true"),
-        ("tag/django.html", "/blog.html", "true"),
+        ("projects.html", "/projects", "page"),
+        ("blog.html", "/blog", "page"),
+        ("projects/a320expert.html", "/projects", "true"),
+        ("a-senior-developer-playbook.html", "/blog", "true"),
+        ("tag/django.html", "/blog", "true"),
     ],
 )
 def test_aria_current_distinguishes_child_pages(site, rel, href, expected):

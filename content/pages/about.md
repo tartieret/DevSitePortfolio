@@ -1,6 +1,6 @@
 Title: About
 Date: 2014-11-01 13:49
-Modified: 2026-11-09 15:43
+Modified: 2026-11-09 17:10
 Authors: Thomas Tartière
 Summary: About me
 Template: about

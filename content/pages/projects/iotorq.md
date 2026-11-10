@@ -1,10 +1,11 @@
 Title: ioTORQ EMIS
 Date: 2019-04-11 00:00
+Modified: 2026-11-09 17:07
 Authors: Thomas Tartière
 Summary: Cloud platform for industrial energy management
 Template: project_detail
 save_as: projects/iotorq.html
-url: projects/iotorq.html
+url: projects/iotorq
 Technologies:python,django,vuejs,azure,sass,javascript,redis,rabbitmq,microsoft-sql-server,postgresql
 Images:projects\EMIS\screenshot1.png,projects\EMIS\screenshot2.png,projects\EMIS\screenshot3.png,projects\EMIS\screenshot4.png,projects\EMIS\screenshot5.png,projects\EMIS\screenshot6.png,projects\EMIS\screenshot7.png
 website: https://panevo.com/software/emis-energy-management-information-system-software/

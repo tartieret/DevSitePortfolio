@@ -1,10 +1,11 @@
 Title: Dog Breed Detector
 Date: 2019-04-11 00:00
+Modified: 2026-11-09 17:07
 Authors: Thomas Tartière
 Summary: Deep learning project to detect dog breeds in images
 Template: project_detail
 save_as: projects/breed-detector.html
-url: projects/breed-detector.html
+url: projects/breed-detector
 Technologies:python,jupyter,keras,numpy,scikit-learn,flask,javascript,bootstrap4
 Images:projects\dogbreed1.png,projects\dogbreed2.png,projects\dogbreed3.png
 repository:https://github.com/tartieret/DogBreedDetector

@@ -1,10 +1,11 @@
 Title: Jet Lag Coach
 Date: 2025-09-01 00:00
+Modified: 2026-11-09 17:07
 Authors: Thomas Tartière
 Summary: B2C mobile app that builds personalized plans to beat jet lag
 Template: project_detail
 save_as: projects/jetlagcoach.html
-url: projects/jetlagcoach.html
+url: projects/jetlagcoach
 Technologies:typescript,vuejs,capacitor,revenuecat,netlify,supabase
 website: https://www.jetlagcoach.com
 Images:projects/jetlagcoach/feature-graphic.png

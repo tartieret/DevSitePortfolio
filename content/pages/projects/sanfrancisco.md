@@ -1,10 +1,11 @@
 Title: San Francisco Crime Visualization
 Date: 2019-04-11 00:00
+Modified: 2026-11-09 17:07
 Authors: Thomas Tartière
 Summary: Analyze criminal incidents in San Francisco, using real data from the Summer 2014.
 Template: project_detail
 save_as: projects/sanfrancisco.html
-url: projects/sanfrancisco.html
+url: projects/sanfrancisco
 Technologies:python,matplotlib
 Images:projects\sanfrancisco.png,projects\sanfrancisco2.png,projects\sanfrancisco3.png
 repository:https://github.com/tartieret/San-Francisco-Incidents---Data-exploration

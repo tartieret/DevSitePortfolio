@@ -9,6 +9,8 @@
 {% block og_type %}profile{% endblock %}
 
 {% block structured_data %}
+{% set alumni = [] %}
+{% for name, url in AUTHOR_ALUMNI %}{% set _ = alumni.append({"@type": "CollegeOrUniversity", "name": name, "url": url}) %}{% endfor %}
 <script type="application/ld+json">
 {{ {
   "@context": "https://schema.org",
@@ -20,10 +22,26 @@
       "url": SITEURL ~ "/",
       "image": SITEURL ~ AUTHOR_PROFILE_IMAGE,
       "jobTitle": AUTHOR_JOB_TITLE,
-      "worksFor": {"@type": "Organization", "name": AUTHOR_EMPLOYER},
+      "worksFor": {"@type": "Organization", "name": AUTHOR_EMPLOYER, "url": AUTHOR_EMPLOYER_URL},
+      "homeLocation": {"@type": "Place", "name": AUTHOR_LOCATION},
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "license",
+        "name": AUTHOR_CREDENTIAL
+      },
+      "alumniOf": alumni,
       "description": SITEDESCRIPTION,
       "knowsAbout": SKILLS_OVERVIEW|map(attribute="skills")|sum(start=[]),
       "sameAs": SOCIAL|map(attribute="1")|list
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": SITEURL ~ "/#profilepage",
+      "url": SITEURL ~ "/",
+      "name": AUTHOR ~ " | " ~ SITESUBTITLE,
+      "dateModified": (page.modified or page.date).isoformat(),
+      "mainEntity": {"@id": SITEURL ~ "/#person"},
+      "isPartOf": {"@id": SITEURL ~ "/#website"}
     },
     {
       "@type": "WebSite",
@@ -49,8 +67,8 @@
       <h1>{{ page.headline or SITESUBTITLE }}</h1>
       <p class="hero-intro">{{ page.intro }}</p>
       <p class="hero-actions">
-        <a class="btn btn-primary" href="{{ SITEURL }}/resume.html">View resume</a>
-        <a class="btn btn-secondary" href="{{ SITEURL }}/projects.html">Selected projects</a>
+        <a class="btn btn-primary" href="{{ SITEURL }}/resume">View resume</a>
+        <a class="btn btn-secondary" href="{{ SITEURL }}/projects">Selected projects</a>
       </p>
     </div>
     <img class="hero-photo" src="{{ SITEURL }}{{ AUTHOR_PHOTO }}" alt="Portrait of {{ AUTHOR }}" width="600" height="900">
@@ -59,7 +77,7 @@
   <section class="career" aria-labelledby="career-title">
     <div class="section-head">
       <h2 id="career-title">Career</h2>
-      <a href="{{ SITEURL }}/resume.html">Full resume →</a>
+      <a href="{{ SITEURL }}/resume">Full resume →</a>
     </div>
     <ol class="ruled-list">
       {% for job in CAREER %}
@@ -78,12 +96,12 @@
     <section class="selected-projects" aria-labelledby="projects-title">
       <div class="section-head">
         <h2 id="projects-title">Selected projects</h2>
-        <a href="{{ SITEURL }}/projects.html">All projects →</a>
+        <a href="{{ SITEURL }}/projects">All projects →</a>
       </div>
       <ul class="ruled-list link-list">
         {% for slug in SELECTED_PROJECTS %}
         {% set project = PROJECTS|selectattr("slug", "equalto", slug)|first %}
-        <li><a href="{{ SITEURL }}/projects/{{ project.slug }}.html"><strong>{{ project.title }}</strong><span class="muted">{{ project.summary }}</span></a></li>
+        <li><a href="{{ SITEURL }}/projects/{{ project.slug }}"><strong>{{ project.title }}</strong><span class="muted">{{ project.summary }}</span></a></li>
         {% endfor %}
       </ul>
     </section>
@@ -91,7 +109,7 @@
     <section class="recent-writing" aria-labelledby="writing-title">
       <div class="section-head">
         <h2 id="writing-title">Recent writing</h2>
-        <a href="{{ SITEURL }}/blog.html">All writing →</a>
+        <a href="{{ SITEURL }}/blog">All writing →</a>
       </div>
       <ul class="ruled-list link-list">
         {% for article in articles[:3] %}

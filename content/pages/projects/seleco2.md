@@ -1,10 +1,11 @@
 Title: SeleCO2
 Date: 2019-04-11 00:00
+Modified: 2026-11-09 17:07
 Authors: Thomas Tartière
 Summary: Large-scale Thermo-Electric Energy Storage (TEES)
 Template: project_detail
 save_as: projects/seleco2.html
-url: projects/seleco2.html
+url: projects/seleco2
 Technologies:python,c++,EES
 Images:projects\seleco2.png,projects\seleco2_2.png
 

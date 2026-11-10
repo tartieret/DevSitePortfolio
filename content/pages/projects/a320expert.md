@@ -1,10 +1,11 @@
 Title: A320 Expert
 Date: 2019-04-11 00:00
+Modified: 2026-11-09 17:07
 Authors: Thomas Tartière
 Summary: B2C training platform for Airbus A320 pilots
 Template: project_detail
 save_as: projects/a320expert.html
-url: projects/a320expert.html
+url: projects/a320expert
 Technologies:python,django,vuejs,postgresql,stripe,digitalocean,capacitor,revenuecat
 Images:projects/A320Expert/home.webp,projects/A320Expert/quiz.webp,projects/A320Expert/features.webp,projects/A320Expert/pricing.webp
 website: https://a320expert.com/

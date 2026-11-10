@@ -31,14 +31,14 @@ def test_hero(site):
     photo = hero.find("img")
     assert photo["src"].endswith("portrait-600.jpg") and photo.get("alt")
     buttons = {a["href"]: a.get_text(strip=True) for a in hero.select("a.btn")}
-    assert buttons == {"/resume.html": "View resume", "/projects.html": "Selected projects"}
+    assert buttons == {"/resume": "View resume", "/projects": "Selected projects"}
 
 
 def test_career_ledger(site):
     section = home(site).select_one("section.career")
     head = section.select_one(".section-head")
     assert head.find("h2").get_text(strip=True) == "Career"
-    assert head.find("a")["href"] == "/resume.html"
+    assert head.find("a")["href"] == "/resume"
     rows = section.select(".career-row")
     assert len(rows) == len(pelicanconf.CAREER) == 3
     for row, job in zip(rows, pelicanconf.CAREER):
@@ -50,9 +50,9 @@ def test_career_ledger(site):
 def test_selected_projects(site):
     links = home(site).select("section.selected-projects li a")
     assert [a["href"] for a in links] == [
-        "/projects/iotorq.html",
-        "/projects/iotorq-lean.html",
-        "/projects/a320expert.html",
+        "/projects/iotorq",
+        "/projects/iotorq-lean",
+        "/projects/a320expert",
     ]
     titles = {p["slug"]: p["title"] for p in pelicanconf.PROJECTS}
     assert [a.find("strong").get_text(strip=True) for a in links] == [titles[s] for s in pelicanconf.SELECTED_PROJECTS]

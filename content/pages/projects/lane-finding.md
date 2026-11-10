@@ -1,10 +1,11 @@
 Title: Advanced Lane Finding
 Date: 2019-04-11 00:00
+Modified: 2026-11-09 17:07
 Authors: Thomas Tartière
 Summary: Automatically detect the lane boundaries on the road
 Template: project_detail
 save_as: projects/lane-finding.html
-url: projects/lane-finding.html
+url: projects/lane-finding
 Technologies:python,jupyter,opencv,numpy
 Images:projects\lanes.png
 repository:https://github.com/tartieret/Selft-Driving-Car---Advanced-Lane-Finding

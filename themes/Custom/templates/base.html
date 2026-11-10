@@ -28,7 +28,7 @@
   {% if page in hidden_pages %}
     <meta name="robots" content="noindex, nofollow" />
   {% else %}
-    <meta name="robots" content="{{ ROBOTS }}" />
+    <meta name="robots" content="{% block robots %}{{ ROBOTS }}{% endblock %}" />
   {% endif %}
 
   <!-- Fonts -->
@@ -83,7 +83,9 @@
   {% block meta %}{% endblock %}
 
   <!-- Canonical URL, Open Graph and Twitter cards -->
-  {% set canonical_url = SITEURL ~ '/' ~ (output_file if output_file != 'index.html' else '') %}
+  {# Extensionless, to match the URLs used everywhere else (see ARTICLE_URL in pelicanconf.py) #}
+  {% set canonical_path = output_file[:-5] if output_file.endswith('.html') else output_file %}
+  {% set canonical_url = SITEURL ~ '/' ~ ('' if canonical_path == 'index' else canonical_path) %}
   <link rel="canonical" href="{{ canonical_url }}" />
   <meta property="og:site_name" content="{{ SITENAME }}" />
   <meta property="og:type" content="{% block og_type %}website{% endblock %}" />
@@ -117,10 +119,10 @@
 
 <body class="{% block body_class %}{% endblock %}">
 {% from "partial/icons.html" import social_icon, social_label %}
-{% set nav_items = [("writing", "/blog.html", "Writing"), ("projects", "/projects.html", "Projects"), ("resume", "/resume.html", "Resume"), ("contact", "/contact.html", "Contact")] %}
+{% set nav_items = [("writing", "/blog", "Writing"), ("projects", "/projects", "Projects"), ("resume", "/resume", "Resume"), ("contact", "/contact", "Contact")] %}
 {% macro nav_links() %}
   {% for key, href, label in nav_items %}
-    <li><a href="{{ SITEURL }}{{ href }}"{% if active_page == key %} aria-current="{{ 'page' if output_file == href[1:] else 'true' }}"{% endif %}{% if key == "contact" %} class="nav-contact"{% endif %}>{{ label }}</a></li>
+    <li><a href="{{ SITEURL }}{{ href }}"{% if active_page == key %} aria-current="{{ 'page' if output_file == href[1:] ~ ".html" else 'true' }}"{% endif %}{% if key == "contact" %} class="nav-contact"{% endif %}>{{ label }}</a></li>
   {% endfor %}
 {% endmacro %}
 

@@ -5,7 +5,7 @@ Summary: B2C training platform for Airbus A320 pilots
 Template: project_detail
 save_as: projects/a320expert.html
 url: projects/a320expert.html
-Technologies:python,django,vuejs,postgresql,stripe,digitalocean
+Technologies:python,django,vuejs,postgresql,stripe,digitalocean,capacitor,revenuecat
 Images:projects/A320Expert/home.webp,projects/A320Expert/quiz.webp,projects/A320Expert/features.webp,projects/A320Expert/pricing.webp
 website: https://a320expert.com/
 
@@ -16,3 +16,7 @@ A320 Expert is a B2C training platform built during the Covid period to support 
 The project was developed in collaboration with a close friend, a professional A320 pilot who was temporarily grounded at the time. The platform combines real-world operational expertise from line pilots with a structured, software-driven training experience focused on practical knowledge, systems understanding, and realistic scenarios.
 
 Unlike my enterprise and industrial work, A320 Expert was designed as a niche B2C product for a highly specialized audience. It currently serves around 200 monthly active users and is well known within the A320 pilot community as a trusted supplemental training tool.
+
+### Mobile Apps
+
+Native Android and iOS apps are in development, scheduled for November 2026. They are built with Vue.js and packaged for both app stores with Capacitor, with RevenueCat managing in-app subscriptions.

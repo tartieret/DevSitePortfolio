@@ -13,6 +13,12 @@ from pelicanconf import *
 
 # If your site is available via HTTPS, make sure SITEURL begins with https://
 SITEURL = "https://thomastartiere.com"
+
+# Netlify deploy previews and branch deploys are served from their own URL.
+# Point SITEURL there so they load their own CSS, images and links instead of
+# the live site's. Netlify sets CONTEXT and DEPLOY_PRIME_URL during builds.
+if os.environ.get("CONTEXT") in ("deploy-preview", "branch-deploy") and os.environ.get("DEPLOY_PRIME_URL"):
+    SITEURL = os.environ["DEPLOY_PRIME_URL"].rstrip("/")
 RELATIVE_URLS = False
 
 FEED_ALL_ATOM = "feeds/all.atom.xml"

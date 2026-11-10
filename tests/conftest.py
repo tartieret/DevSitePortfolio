@@ -1,4 +1,5 @@
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -10,11 +11,19 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 
-def build(out_dir: Path, settings: str = "pelicanconf.py", extra: list[str] | None = None, content: Path | str = "content") -> Path:
+def build(
+    out_dir: Path,
+    settings: str = "pelicanconf.py",
+    extra: list[str] | None = None,
+    content: Path | str = "content",
+    env: dict[str, str] | None = None,
+) -> Path:
     cmd = [sys.executable, "-m", "pelican", str(content), "-o", str(out_dir), "-s", settings]
     for item in extra or []:
         cmd += ["-e", item]
-    result = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
+    run_env = {k: v for k, v in os.environ.items() if k not in ("CONTEXT", "DEPLOY_PRIME_URL")}
+    run_env.update(env or {})
+    result = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, env=run_env)
     assert result.returncode == 0, result.stdout + result.stderr
     assert "ERROR" not in result.stdout + result.stderr, result.stdout + result.stderr
     return out_dir

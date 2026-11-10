@@ -284,7 +284,7 @@ PROJECTS = (
         "slug": "a320expert",
         "title": "A320 Expert",
         "summary": "A training platform for Airbus A320 pilots",
-        "thumb": "/images/projects/a320expert-thumb.png",
+        "thumb": "/images/projects/a320expert-thumb.webp",
         "filters": ["web"],
         "technologies": ["Python/Django", "Digital Ocean", "Stripe", "B2C"],
     },

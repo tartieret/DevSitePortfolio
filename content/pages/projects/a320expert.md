@@ -6,7 +6,7 @@ Template: project_detail
 save_as: projects/a320expert.html
 url: projects/a320expert.html
 Technologies:python,django,vuejs,postgresql,stripe,digitalocean
-Images:projects\A320Expert\question.webp,projects\A320Expert\progress.webp,projects\A320Expert\quizzes.webp,projects\A320Expert\a320expert-screenshot4.png
+Images:projects/A320Expert/home.webp,projects/A320Expert/quiz.webp,projects/A320Expert/features.webp,projects/A320Expert/pricing.webp
 website: https://a320expert.com/
 
 ### Project Background

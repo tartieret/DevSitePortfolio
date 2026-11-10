@@ -46,7 +46,7 @@
   <section class="hero">
     <div class="hero-text">
       <p class="credentials label"><span class="accent">{{ credentials[0] }}</span>{% for item in credentials[1:] %} <span aria-hidden="true">·</span> {{ item }}{% endfor %}</p>
-      <h1>{{ page.headline }}</h1>
+      <h1>{{ page.headline or SITESUBTITLE }}</h1>
       <p class="hero-intro">{{ page.intro }}</p>
       <p class="hero-actions">
         <a class="btn btn-primary" href="{{ SITEURL }}/resume.html">View resume</a>

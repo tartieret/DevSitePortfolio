@@ -10,8 +10,8 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 
-def build(out_dir: Path, settings: str = "pelicanconf.py", extra: list[str] | None = None) -> Path:
-    cmd = [sys.executable, "-m", "pelican", "content", "-o", str(out_dir), "-s", settings]
+def build(out_dir: Path, settings: str = "pelicanconf.py", extra: list[str] | None = None, content: Path | str = "content") -> Path:
+    cmd = [sys.executable, "-m", "pelican", str(content), "-o", str(out_dir), "-s", settings]
     for item in extra or []:
         cmd += ["-e", item]
     result = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)

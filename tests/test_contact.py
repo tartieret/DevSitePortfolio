@@ -34,3 +34,8 @@ def test_contact_links(site):
 def test_honeypot_not_rendered(site):
     honeypot = contact(site).find("input", attrs={"name": "_gotcha"})
     assert honeypot.has_attr("hidden") or "display:none" in honeypot.get("style", "").replace(" ", "")
+
+
+def test_contact_copy_matches_layout(site):
+    text = contact(site).find("main").get_text(" ", strip=True)
+    assert "form below" not in text

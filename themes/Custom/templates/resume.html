@@ -16,8 +16,9 @@
       <p class="resume-title">{{ AUTHOR_JOB_TITLE }}, {{ AUTHOR_EMPLOYER }} <span class="muted">· P.Eng. · Vancouver</span></p>
     </div>
     <ul class="resume-links">
-      <li><a href="https://www.linkedin.com/in/thomastartiere/" rel="noopener" target="_blank">linkedin.com/in/thomastartiere</a></li>
-      <li><a href="https://github.com/tartieret" rel="noopener" target="_blank">github.com/tartieret</a></li>
+      {% for name, url in SOCIAL if name in ("linkedin", "github") %}
+      <li><a href="{{ url }}" rel="noopener" target="_blank">{{ url.split("://")[1].rstrip("/").replace("www.", "") }}</a></li>
+      {% endfor %}
       <li><a href="{{ SITEURL }}/contact.html">Get in touch</a></li>
     </ul>
   </header>
@@ -56,8 +57,8 @@
           <div class="resume-desc">
             <p>Built the company’s core enterprise data platforms from scratch as the initial architect and developer, delivering production-grade systems quickly with limited resources</p>
 <ul>
-<li>Designed and implemented a <a href="/projects/iotorq.html">real time industrial data platform</a> for collecting, visualizing, and analyzing high volume energy and telemetry data across large industrial organizations.</li>
-<li>Built from scratch a <a href="/projects/iotorq-lean.html">lean manufacturing and performance monitoring platform</a>, supporting operational analytics and production visibility.</li>
+<li>Designed and implemented a <a href="{{ SITEURL }}/projects/iotorq.html">real time industrial data platform</a> for collecting, visualizing, and analyzing high volume energy and telemetry data across large industrial organizations.</li>
+<li>Built from scratch a <a href="{{ SITEURL }}/projects/iotorq-lean.html">lean manufacturing and performance monitoring platform</a>, supporting operational analytics and production visibility.</li>
 <li>Designed and implemented a utility bill management system capable of detecting anomalies across tens of thousands of electricity, gas, water, and telecom bills.</li>
 <li>Implemented machine learning models to improve asset performance and operational efficiency.</li>
 <li>Led on site coordination, commissioning, and go live of full scale energy management information systems in large industrial facilities.</li>

@@ -564,7 +564,7 @@ ul, ol { color: var(--body); }
   .tint-band { background: none; padding: 0; }
   a { color: inherit; text-decoration: none; }
   .resume-section, .resume-row { break-inside: avoid; }
-  .prose pre { white-space: pre-wrap; }
+  .prose pre, .prose pre code { white-space: pre-wrap; }
 }
 
 /* ---------- Contact ---------- */

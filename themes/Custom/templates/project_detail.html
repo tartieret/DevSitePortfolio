@@ -17,7 +17,7 @@
       <p class="label muted"><a href="{{ SITEURL }}/projects.html">Projects</a></p>
       <h1>{{ page.title }}</h1>
       {% if page.summary %}<p class="article-dek">{{ page.summary|striptags }}</p>{% endif %}
-      {% if page.technologies %}<p class="project-tech muted">{{ page.technologies.split(",")|map("trim")|join(" · ") }}</p>{% endif %}
+      {% if page.technologies %}<p class="project-tech muted">{% for tech in page.technologies.split(",")|map("trim")|reject("equalto", "") %}{{ TECH_LABELS.get(tech, tech) }}{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
       {% if page.website or page.repository %}
       <p class="project-links">
         {% if page.website %}<a class="btn btn-primary" href="{{ page.website }}" rel="noopener" target="_blank">Visit site</a>{% endif %}

@@ -120,7 +120,7 @@
 {% set nav_items = [("writing", "/blog.html", "Writing"), ("projects", "/projects.html", "Projects"), ("resume", "/resume.html", "Resume"), ("contact", "/contact.html", "Contact")] %}
 {% macro nav_links() %}
   {% for key, href, label in nav_items %}
-    <li><a href="{{ SITEURL }}{{ href }}"{% if active_page == key %} aria-current="page"{% endif %}{% if key == "contact" %} class="nav-contact"{% endif %}>{{ label }}</a></li>
+    <li><a href="{{ SITEURL }}{{ href }}"{% if active_page == key %} aria-current="{{ 'page' if output_file == href[1:] else 'true' }}"{% endif %}{% if key == "contact" %} class="nav-contact"{% endif %}>{{ label }}</a></li>
   {% endfor %}
 {% endmacro %}
 
@@ -153,6 +153,7 @@
     </div>
   </footer>
 
+  <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/nav.js" defer></script>
   {% block page_specific_js %}{% endblock %}
 
 </body>

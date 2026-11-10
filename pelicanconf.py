@@ -198,6 +198,44 @@ CAREER = (
 # Slugs from PROJECTS shown on the homepage, in order.
 SELECTED_PROJECTS = ("iotorq", "iotorq-lean", "a320expert")
 
+# Display names for the technology slugs used in project pages' "Technologies:" metadata.
+TECH_LABELS = {
+    "azure": "Azure",
+    "bootstrap4": "Bootstrap 4",
+    "c++": "C++",
+    "capacitor": "Capacitor",
+    "digitalocean": "DigitalOcean",
+    "django": "Django",
+    "docker": "Docker",
+    "EES": "EES",
+    "flask": "Flask",
+    "javascript": "JavaScript",
+    "jupyter": "Jupyter",
+    "kafka": "Kafka",
+    "keras": "Keras",
+    "matplotlib": "Matplotlib",
+    "microsoft-sql-server": "Microsoft SQL Server",
+    "mqtt": "MQTT",
+    "netlify": "Netlify",
+    "nextjs": "Next.js",
+    "numpy": "NumPy",
+    "opencv": "OpenCV",
+    "postgresql": "PostgreSQL",
+    "python": "Python",
+    "Qt": "Qt",
+    "rabbitmq": "RabbitMQ",
+    "react": "React",
+    "redis": "Redis",
+    "revenuecat": "RevenueCat",
+    "sass": "Sass",
+    "scikit-learn": "scikit-learn",
+    "stripe": "Stripe",
+    "supabase": "Supabase",
+    "tailwindcss": "Tailwind CSS",
+    "typescript": "TypeScript",
+    "vuejs": "Vue.js",
+}
+
 # ----------------------------------
 # PROJECTS
 # Shared by the Projects page and the homepage "Selected projects" list.

@@ -33,7 +33,12 @@ def resolve(site: Path, html_file: Path, url: str) -> Path | None:
     return target
 
 
-def test_internal_links_resolve(site):
+import pytest
+
+
+@pytest.mark.parametrize("build_name", ["site", "publish_site"])
+def test_internal_links_resolve(build_name, request):
+    site = request.getfixturevalue(build_name)
     broken = []
     for html_file in all_html(site):
         soup = page(site, str(html_file.relative_to(site)))

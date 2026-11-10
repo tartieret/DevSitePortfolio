@@ -15,7 +15,7 @@
 
 {% block og_type %}article{% endblock %}
 
-{% block og_image %}{% if article.previewimage %}{{ SITEURL }}/{{ article.previewimage }}{% else %}{{ super() }}{% endif %}{% endblock %}
+{% block og_image %}{% if article.previewimage %}{{ SITEURL }}/{{ article.previewimage|trim('/') }}{% else %}{{ super() }}{% endif %}{% endblock %}
 
 {% block structured_data %}
 <script type="application/ld+json">
@@ -26,7 +26,7 @@
   "description": article.summary|striptags,
   "url": SITEURL ~ "/" ~ article.url,
   "mainEntityOfPage": SITEURL ~ "/" ~ article.url,
-  "image": SITEURL ~ "/" ~ (article.previewimage or AUTHOR_PROFILE_IMAGE[1:]),
+  "image": SITEURL ~ "/" ~ (article.previewimage or AUTHOR_PROFILE_IMAGE)|trim("/"),
   "datePublished": article.date.isoformat(),
   "dateModified": (article.modified or article.date).isoformat(),
   "keywords": article.tags|join(", "),
@@ -69,7 +69,7 @@
     {% endif %}
 
     <aside class="author-card">
-      <img src="{{ SITEURL }}{{ AUTHOR_PHOTO }}" alt="{{ AUTHOR }}" width="64" height="64">
+      <img src="{{ SITEURL }}{{ AUTHOR_PHOTO }}" alt="" width="64" height="64">
       <div>
         <p><a href="{{ SITEURL }}/"><strong>{{ AUTHOR }}</strong></a></p>
         <p class="muted">{{ AUTHOR_JOB_TITLE }} at {{ AUTHOR_EMPLOYER }}. I build and scale data-intensive platforms for industrial and enterprise applications.</p>

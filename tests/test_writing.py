@@ -61,3 +61,31 @@ def test_archive_templates_render(site):
 def test_custom_css_removed(site):
     for html_file in all_html(site):
         assert "extra/custom.css" not in html_file.read_text(encoding="utf-8"), html_file
+
+
+def test_author_card_photo_is_decorative(site):
+    img = page(site, ARTICLE).select_one(".author-card img")
+    assert img["alt"] == ""
+
+
+def test_preview_image_with_leading_slash():
+    from types import SimpleNamespace
+    from datetime import datetime
+    from jinja2 import Environment, FileSystemLoader
+
+    env = Environment(loader=FileSystemLoader(str(ROOT / "themes" / "Custom" / "templates")))
+    article = SimpleNamespace(
+        title="T", url="t.html", date=datetime(2026, 1, 1), locale_date="January 01, 2026",
+        stats={"read_mins": 3}, summary="S", previewimage="/images/blog/x.png",
+    )
+    html = env.get_template("partial/article_list.html").render(articles_list=[article], SITEURL="https://example.com")
+    assert 'src="https://example.com/images/blog/x.png"' in html
+
+
+def test_templates_strip_leading_slash_from_preview_images():
+    templates = ROOT / "themes" / "Custom" / "templates"
+    for path in templates.rglob("*.html"):
+        text = path.read_text(encoding="utf-8")
+        assert "/{{ article.previewimage }}" not in text, path.name
+        if "(article.previewimage or" in text:
+            assert '(article.previewimage or AUTHOR_PROFILE_IMAGE)|trim("/")' in text, path.name

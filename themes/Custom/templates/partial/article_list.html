@@ -9,7 +9,7 @@
         {% if article.summary %}<p class="article-summary">{{ article.summary|striptags }}</p>{% endif %}
       </div>
       {% if article.previewimage %}
-      <a class="article-thumb" href="{{ SITEURL }}/{{ article.url }}" tabindex="-1" aria-hidden="true"><img src="{{ SITEURL }}/{{ article.previewimage }}" alt="" loading="lazy"></a>
+      <a class="article-thumb" href="{{ SITEURL }}/{{ article.url }}" tabindex="-1" aria-hidden="true"><img src="{{ SITEURL }}/{{ article.previewimage|trim('/') }}" alt="" loading="lazy"></a>
       {% endif %}
     </article>
   </li>

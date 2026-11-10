@@ -1,4 +1,5 @@
 import re
+from pathlib import Path
 
 from conftest import page
 
@@ -40,3 +41,21 @@ def test_resume_print_styles(site):
 
 def test_llms_txt_no_pdf(site):
     assert "resume_tartieret.pdf" not in (site / "llms.txt").read_text(encoding="utf-8")
+
+
+def test_resume_links_use_siteurl_and_social(publish_site):
+    import pelicanconf
+
+    soup = page(publish_site, "resume.html")
+    project_links = [a["href"] for a in soup.select(".resume-desc a")]
+    assert project_links and all(h.startswith("https://thomastartiere.com/projects/") for h in project_links)
+    template = (Path(__file__).resolve().parent.parent / "themes/Custom/templates/resume.html").read_text()
+    for _, url in pelicanconf.SOCIAL:
+        assert url not in template
+    head_links = [a["href"] for a in soup.select(".resume-links a")]
+    assert dict(pelicanconf.SOCIAL)["linkedin"] in head_links and dict(pelicanconf.SOCIAL)["github"] in head_links
+
+
+def test_llms_txt_about_description(site):
+    text = (site / "llms.txt").read_text(encoding="utf-8")
+    assert "Overview, background and skills" not in text

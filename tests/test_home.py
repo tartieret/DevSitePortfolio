@@ -73,3 +73,15 @@ def test_no_skill_cards(site):
     assert not soup.select("[class*=skills-]")
     person = next(n for n in json_ld(soup) if n["@type"] == "Person")
     assert person["knowsAbout"]
+
+
+def test_headline_falls_back_to_subtitle(tmp_path):
+    import shutil
+    from conftest import build
+
+    content = tmp_path / "content"
+    shutil.copytree(ROOT / "content", content)
+    about = content / "pages" / "about.md"
+    about.write_text(re.sub(r"^headline:.*\n", "", about.read_text(encoding="utf-8"), flags=re.M), encoding="utf-8")
+    out = build(tmp_path / "out", content=content)
+    assert page(out, "index.html").find("h1").get_text(strip=True) == pelicanconf.SITESUBTITLE

@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pytest
 
 import pelicanconf
@@ -72,3 +74,31 @@ def test_skip_link(site, rel):
     first_link = soup.body.find("a")
     assert first_link["href"] == "#main" and "skip" in first_link.get("class", [])
     assert soup.find("main", id="main") is not None
+
+
+@pytest.mark.parametrize(
+    "rel,href,expected",
+    [
+        ("projects.html", "/projects.html", "page"),
+        ("blog.html", "/blog.html", "page"),
+        ("projects/a320expert.html", "/projects.html", "true"),
+        ("a-senior-developer-playbook.html", "/blog.html", "true"),
+        ("tag/django.html", "/blog.html", "true"),
+    ],
+)
+def test_aria_current_distinguishes_child_pages(site, rel, href, expected):
+    link = page(site, rel).find("nav").find("a", href=href, attrs={"aria-current": True})
+    assert link is not None and link["aria-current"] == expected
+
+
+def test_mobile_menu_script(site):
+    soup = page(site, "index.html")
+    assert soup.find("script", src=lambda s: s and s.endswith("theme/js/nav.js"))
+    script = (site / "theme" / "js" / "nav.js").read_text()
+    assert "Escape" in script and "click" in script
+
+
+def test_print_wraps_code():
+    css = (Path(__file__).resolve().parent.parent / "themes/Custom/static/css/site.css").read_text()
+    print_block = css[css.index("@media print"):]
+    assert ".prose pre code" in print_block and "pre-wrap" in print_block

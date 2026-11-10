@@ -23,12 +23,12 @@
 
   <div class="project-grid">
     {% for project in PROJECTS %}
-    {% set url = SITEURL ~ "/projects/" ~ project.slug ~ ".html" if project.slug else None %}
+    {% set url = SITEURL ~ "/projects/" ~ project.slug ~ ".html" %}
     <article class="project" data-filters="{{ project.filters|join(' ') }}">
-      {% if url %}<a href="{{ url }}" tabindex="-1" aria-hidden="true">{% endif %}
+      <a href="{{ url }}" tabindex="-1" aria-hidden="true">
         <img class="project-thumb" src="{{ SITEURL }}{{ project.thumb }}" alt="{{ project.title }}" loading="lazy">
-      {% if url %}</a>{% endif %}
-      <h2>{% if url %}<a href="{{ url }}">{{ project.title }}</a>{% else %}{{ project.title }}{% endif %}</h2>
+      </a>
+      <h2><a href="{{ url }}">{{ project.title }}</a></h2>
       <p>{{ project.summary }}</p>
       <p class="project-tech muted">{{ project.technologies|join(" · ") }}</p>
     </article>

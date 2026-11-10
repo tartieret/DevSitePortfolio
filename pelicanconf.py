@@ -201,7 +201,6 @@ SELECTED_PROJECTS = ("iotorq", "iotorq-lean", "a320expert")
 # ----------------------------------
 # PROJECTS
 # Shared by the Projects page and the homepage "Selected projects" list.
-# A project with slug None has no detail page and renders without a link.
 
 PROJECT_FILTERS = (
     ("web", "Web"),
@@ -323,16 +322,8 @@ PROJECTS = (
         "filters": ["energy"],
         "technologies": ["Python", "C++", "R&D"],
     },
-    {
-        "slug": None,
-        "title": "Peak Alert",
-        "summary": "SMS alerts for electricity peaks in Ontario",
-        "thumb": "/images/projects/peakalert-thumb.png",
-        "filters": ["web"],
-        "technologies": ["Python", "Twilio", "Azure Function"],
-    },
 )
 
-_slugs = [p["slug"] for p in PROJECTS if p["slug"]]
+_slugs = [p["slug"] for p in PROJECTS]
 assert len(_slugs) == len(set(_slugs)), "duplicate project slug"
 assert all(s in _slugs for s in SELECTED_PROJECTS), "unknown SELECTED_PROJECTS slug"

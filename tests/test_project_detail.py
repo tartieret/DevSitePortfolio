@@ -34,7 +34,7 @@ def test_repository_link(site):
 
 def test_technology_labels(site):
     head = page(site, "projects/a320expert.html").select_one(".project-head")
-    assert head.select_one(".project-tech").get_text(strip=True) == "Python · Django · Vue.js · PostgreSQL · Stripe · DigitalOcean"
+    assert head.select_one(".project-tech").get_text(strip=True) == "Python · Django · Vue.js · PostgreSQL · Stripe · DigitalOcean · Capacitor · RevenueCat"
 
 
 def test_every_technology_has_a_label():

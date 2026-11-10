@@ -1,12 +1,15 @@
 {% extends "base.html" %}
+{% set active_page = "writing" %}
 
-{% block title %}{{ SITENAME }} - Authors{% endblock %}
+{% block title %}Authors | {{ AUTHOR }}{% endblock %}
 
 {% block content %}
-    <h1>Authors on {{ SITENAME }}</h1>
-    <ul>
+<div class="container page">
+  <header class="page-head"><h1>Authors</h1></header>
+  <ul class="ruled-list index-list">
     {% for author, articles in authors|sort %}
-        <li><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a> ({{ articles|count }})</li>
+    <li><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a> <span class="muted num">{{ articles|count }} {{ "article" if articles|count == 1 else "articles" }}</span></li>
     {% endfor %}
-    </ul>
+  </ul>
+</div>
 {% endblock %}

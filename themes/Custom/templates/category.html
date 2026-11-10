@@ -1,8 +1,8 @@
 {% extends "index.html" %}
 
-{% block title %}{{ SITENAME }} - {{ category }} category{% endblock %}
+{% block title %}{{ category }} articles | {{ AUTHOR }}{% endblock %}
 
 {% block content_title %}
-<h2>Articles in the {{ category }} category</h2>
+<p class="label muted">Category</p>
+<h1>{{ category }}</h1>
 {% endblock %}
-

@@ -1,62 +1,22 @@
 {% extends "base.html" %}
+{% set active_page = "writing" %}
 
 {% block description %}Articles by {{ AUTHOR }} on AI agents, Django, web development and software engineering leadership.{% endblock %}
 
-{% block title %}Blog | {{ AUTHOR }}{% endblock %}
-
-{% block header_intro %}
-    <div class="header-intro header-intro-resume theme-bg-primary text-white py-5">
-      <div class="container position-relative">
-        <h2 class="page-heading mb-3">Blog</h2>
-        <div class="page-heading-tagline mb-3">Some thoughts and lessons learned <br class="d-lg-block d-none">You can connect with me via the various channels below:</div>
-			            <ul class="social-list-square list-inline mb-0">
-			                <li class="list-inline-item mb-3 mb-lg-0"><a href="https://www.linkedin.com/in/thomastartiere/" target="_blank"><i class="fab fa-linkedin-in fa-fw text-white"></i></a></li>
-				            <li class="list-inline-item mb-3 mb-lg-0"><a href="https://x.com/thomas_tartiere" target="_blank"><i class="fab fa-twitter fa-fw text-white"></i></a></li>
-			                <li class="list-inline-item mb-3 mb-lg-0"><a href="https://github.com/tartieret" target="_blank"><i class="fab fa-github-alt fa-fw text-white"></i></a></li>
-			                <!-- <li class="list-inline-item mb-3 mb-lg-0"><a href="#"><i class="fab fa-medium-m fa-fw text-white"></i></a></li> -->
-			            </ul><!--//social-list-->
-      </div><!--//container-->
-    </div><!--//header-intro-->
-{% endblock %}
+{% block title %}Writing | {{ AUTHOR }}{% endblock %}
 
 {% block content %}
+<div class="container page">
+  <header class="page-head">
+    {% block content_title %}
+    <h1>Writing</h1>
+    <p>Notes on engineering leadership, AI agents, Django and building data platforms.</p>
+    {% endblock %}
+  </header>
 
-    <section class="section pt-5">
-      <div class="container blog-cards">
+  {% set articles_list = articles_page.object_list %}
+  {% include "partial/article_list.html" %}
 
-        <div class="row">
-
-            {% for article in articles_page.object_list %}
-
-            <div class="col-12 col-md-6 col-lg-4 mb-5">
-                <div class="card rounded-0 border-0 shadow-sm eq-height">
-                    <div class="card-img-container position-relative">
-                            <img class="card-img-top rounded-0" src="{{ SITEURL }}/{{ article.previewimage }}" alt="">
-                            <div class="card-img-overlay overlay-mask  text-center p-0">
-                            <div class="overlay-mask-content text-center w-100 position-absolute">
-                            <a class="btn btn-primary" href="{{ SITEURL }}/{{ article.url }}">Read more</a>
-                            </div>
-                            <a class="overlay-mask-link position-absolute w-100 h-100" href="{{ SITEURL }}/{{ article.url }}"></a>
-                        </div>
-                    </div>
-                    <div class="card-body pb-4">
-                        <h4 class="card-title mb-2"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h4>
-                        <div class="card-text">
-                            <div class="excerpt"> {{ article.summary }}</div>
-                        </div>
-                    </div>
-                    <div class="card-footer border-0">
-                        <ul class="meta list-inline mb-0">
-                            <li class="list-inline-item mr-3"><i class="far fa-clock mr-2"></i>{{ article.locale_date }}</li>
-                        </ul>
-                    </div>
-                </div><!--//card-->
-            </div>
-
-            {% endfor %}
-
-    </div>
-
-    </div><!--//container-->
-</section><!--//section-->
+  {% include "pagination.html" %}
+</div>
 {% endblock content %}

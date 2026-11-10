@@ -14,7 +14,7 @@ Integrating our [ioTORQ data platform](/projects/iotorq.html) with industrial fa
 
 The software includes a graphical user interface and configuration files so that it can be setup by non-developers.
 
-![Data platform](/images/projects/ioTORQ/dataplatform.jpg)
+![Data platform](/images/projects/EMIS/dataplatform.jpg)
 
 
 

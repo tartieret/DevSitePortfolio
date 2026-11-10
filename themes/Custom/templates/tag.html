@@ -1,7 +1,8 @@
 {% extends "index.html" %}
 
-{% block title %}{{ SITENAME }} - {{ tag }} tag{% endblock %}
+{% block title %}Articles tagged {{ tag }} | {{ AUTHOR }}{% endblock %}
 
 {% block content_title %}
-<h2>Articles tagged with {{ tag }}</h2>
+<p class="label muted">Tag</p>
+<h1>{{ tag }}</h1>
 {% endblock %}

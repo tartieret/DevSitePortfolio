@@ -31,25 +31,17 @@
     <meta name="robots" content="{{ ROBOTS }}" />
   {% endif %}
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
 
-  <!-- FontAwesome JS-->
-  <script defer src="https://use.fontawesome.com/releases/v5.1.1/js/all.js" integrity="sha384-BtvRZcyfv4r0x/phJt9Y9HhnN5ur1Z+kZbKVgzVBAlQZX4jvAuImlIz+bG7TS00a" crossorigin="anonymous"></script>
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/site.css">
 
   <!-- Page specific CSS -->
   {% block page_specific_css %}{% endblock %}
 
-  <!-- Theme CSS -->
-  <link id="theme-style" rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/base_theme.css">
-  <link id="theme-style" rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/custom_theme.css">
-
-  {% if CUSTOM_CSS %}
-  <link href="{{ SITEURL }}/{{ CUSTOM_CSS }}" rel="stylesheet">
-  {% endif %}
 
   {% if FEED_ALL_ATOM %}
   <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
@@ -77,20 +69,13 @@
   {% endif %}
 
   {% if FAVICON %}
-    <link rel="shortcut icon" href="{{ FAVICON }}" type="image/x-icon">
-    <link rel="icon" href="{{ FAVICON }}" type="image/x-icon">
+    <link rel="icon" href="{{ SITEURL }}{{ FAVICON }}" type="image/svg+xml">
+    <link rel="icon" href="{{ SITEURL }}/images/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="{{ SITEURL }}/images/apple-touch-icon.png">
   {% endif %}
 
   {% if BROWSER_COLOR %}
-    <!-- Chrome, Firefox OS and Opera -->
     <meta name="theme-color" content="{{ BROWSER_COLOR }}">
-    <!-- Windows Phone -->
-    <meta name="msapplication-navbutton-color" content="{{ BROWSER_COLOR }}">
-    <!-- iOS Safari -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <!-- Microsoft EDGE -->
-    <meta name="msapplication-TileColor" content="{{ BROWSER_COLOR }}">
   {% endif %}
 
   <meta name="author" content="{{ AUTHOR }}" />
@@ -130,81 +115,45 @@
   {% endblock head %}
 </head>
 
-<body id="index" class="home">
+<body class="{% block body_class %}{% endblock %}">
+{% from "partial/icons.html" import social_icon, social_label %}
+{% set nav_items = [("writing", "/blog.html", "Writing"), ("projects", "/projects.html", "Projects"), ("resume", "/resume.html", "Resume"), ("contact", "/contact.html", "Contact")] %}
+{% macro nav_links() %}
+  {% for key, href, label in nav_items %}
+    <li><a href="{{ SITEURL }}{{ href }}"{% if active_page == key %} aria-current="{{ 'page' if output_file == href[1:] else 'true' }}"{% endif %}{% if key == "contact" %} class="nav-contact"{% endif %}>{{ label }}</a></li>
+  {% endfor %}
+{% endmacro %}
 
-  <!-- Header -->
-	<header class="header">
-    <div class="top-bar theme-bg-primary-darken">
+  <a class="skip" href="#main">Skip to main content</a>
 
-    <div class="container-fluid">
-
-    <nav class="navbar navbar-expand-lg navbar-dark position-relative">
-
-      <!-- <a class="navbar-brand" href="\"><img id="logo" src="{{ SITEURL }}{{ SITELOGO }}"/></a> -->
-
-      <ul class="social-list list-inline mb-0">
-        <li class="list-inline-item"><a href="https://www.linkedin.com/in/thomastartiere/" target="_blank"><i class="fab fa-linkedin-in fa-fw text-white"></i></a></li>
-        <li class="list-inline-item"><a href="https://x.com/thomas_tartiere" target="_blank"><i class="fab fa-twitter fa-fw text-white"></i></a></li>
-        <li class="list-inline-item"><a href="https://github.com/tartieret" target="_blank"><i class="fab fa-github-alt fa-fw text-white"></i></a></li>
-      </ul><!--//social-list-->
-
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse text-uppercase" id="navigation">
-        <ul class="navbar-nav ml-lg-auto">
-          <li class="nav-item {% if page and page.template == 'about' %} active {% endif %} mr-lg-3">
-              <a class="nav-link" href="/index.html">About</a>
-          </li>
-          <li class="nav-item {% if page and page.template == 'index' %} active {% endif %} mr-lg-3">
-              <a class="nav-link" href="blog.html">Blog</a>
-          </li>
-          <li class="nav-item {% if page and page.template == 'resume' %} active {% endif %} mr-lg-3">
-              <a class="nav-link" href="/resume.html">Resume</a>
-          </li>
-          <li class="nav-item {% if page and page.template == 'projects' %} active {% endif %} mr-lg-3">
-              <a class="nav-link" href="/projects.html">Projects</a>
-          </li>
-          <li class="nav-item {% if page and page.template == 'contact' %} active {% endif %} mr-lg-3">
-              <a class="nav-link" href="/contact.html">Contact</a>
-          </li>
-        </ul>
-        <span id="slide-line"></span>
-
-      </div>
+  <header class="site-header">
+    <nav class="container site-nav" aria-label="Main">
+      <a class="site-name" href="{{ SITEURL }}/">{{ AUTHOR }}</a>
+      <ul class="nav-links">{{ nav_links() }}</ul>
+      <details class="nav-mobile">
+        <summary aria-label="Menu"><span></span><span></span><span></span></summary>
+        <ul>{{ nav_links() }}</ul>
+      </details>
     </nav>
+  </header>
 
-    </div><!--//container-->
-
-    </div><!--//top-bar-->
-
-    {% block header_intro  %}{% endblock %}
-
-  </header><!--//header-->
-
+  <main id="main" tabindex="-1">
   {% block content %}
   {% endblock %}
+  </main>
 
-  <!--//add jquery social share bar (configure your channels in js)-->
-  <div id="share-bar"></div>
-
-  <footer class="footer text-light text-center">
-    <div class="container">
-      <small class="text-muted">Template designed with <i class="fa fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
-
-      <small class="text-muted"> - Content &copy; {{COPYRIGHT_YEAR}}-{{ CURRENT_YEAR }} Thomas Tartière</small>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="muted">&copy; {{ COPYRIGHT_YEAR }}&ndash;{{ CURRENT_YEAR }} {{ AUTHOR }}</p>
+      <ul class="social">
+        {% for name, link in SOCIAL %}
+          <li><a href="{{ link }}" aria-label="{{ social_label(name) }}" rel="me noopener" target="_blank">{{ social_icon(name) }}</a></li>
+        {% endfor %}
+      </ul>
     </div>
   </footer>
 
-  <!-- JS plugins -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-  <!-- Theme JS -->
-  <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/main.js"></script>
-
-  <!-- page specific JS plugins -->
+  <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/nav.js" defer></script>
   {% block page_specific_js %}{% endblock %}
 
 </body>

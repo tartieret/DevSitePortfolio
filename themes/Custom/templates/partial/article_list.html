@@ -1,0 +1,17 @@
+{# Ruled list of articles. Expects `articles_list`. #}
+<ol class="ruled-list article-list">
+  {% for article in articles_list %}
+  <li>
+    <article class="article-item{% if article.previewimage %} has-thumb{% endif %}">
+      <div>
+        <h2><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark">{{ article.title }}</a></h2>
+        <p class="article-meta muted"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>{% if article.stats %} · {{ article.stats['read_mins'] }} min read{% endif %}</p>
+        {% if article.summary %}<p class="article-summary">{{ article.summary|striptags }}</p>{% endif %}
+      </div>
+      {% if article.previewimage %}
+      <a class="article-thumb" href="{{ SITEURL }}/{{ article.url }}" tabindex="-1" aria-hidden="true"><img src="{{ SITEURL }}/{{ article.previewimage|trim('/') }}" alt="" loading="lazy"></a>
+      {% endif %}
+    </article>
+  </li>
+  {% endfor %}
+</ol>

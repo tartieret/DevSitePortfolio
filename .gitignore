@@ -148,3 +148,7 @@ pip-selfcheck.json
 # End of https://www.gitignore.io/api/python,visualstudiocode
 
 output/*
+
+# Brainstorming / plan execution scratch
+.superpowers/
+.playwright-mcp/
